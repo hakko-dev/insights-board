@@ -1,8 +1,11 @@
 # insights-board
 
+## 참고 링크 모음
+- https://board.walkinsights.com/#/demo/overview
+
 ## vscode settings
 
-prettier 설정 참고용입니다.
+prettier 설정 참고용.
 
 ```
 {
