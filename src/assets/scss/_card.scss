@@ -1,0 +1,33 @@
+.ib-card{
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(81, 99, 120, 0.1) 0px 1px 2px 0px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(81, 99, 120, 0.2);
+  border-image: initial;
+  //padding: 10px 22px 18px;
+  >.ib-card-header {
+    width: auto;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.33;
+    text-align: left;
+    color: rgb(81, 99, 120);
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 15px 22px;
+    justify-content: space-between;
+
+    > span.title {
+      line-height: 26px;
+      white-space: nowrap;
+    }
+    >.ib-card-actions{
+      display: flex;
+    }
+  }
+}
