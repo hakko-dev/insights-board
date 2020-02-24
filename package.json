@@ -2,5 +2,18 @@
   "name": "insights-board",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "parcel": "parcel",
+    "start": "parcel ./src/index.pug",
+    "build": "parcel build ./src/index.pug"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.8.4",
+    "sass": "^1.25.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "pug": "^2.0.4"
+  }
 }
