@@ -92,31 +92,25 @@ html(lang="ko")
                     #custom-handle.ui-slider-handle
 
         .ib-card
-          .ib-card-header
-            span.title 트렌드
-                span.title-caption
-                    i.material-icons(title="선택한 기간의 각 지표별 트렌드를 파악 할 수 있습니다") help
-                    | 도움말
-            .ib-card-actions
-                span.title-caption
-                    i.material-icons(title="선택한 기간의 데이터를 일 / 주 / 월별로 비교할 수 있습니다") help
-                ul#selectable
-                    li.ui-widget-content 일
-                    li.ui-widget-content 주
-                    li.ui-widget-content 월
-                .download
-                    i.material-icons cloud_download
-                    span 이미지 다운로드
-          hr.ib-card-hr
+            .ib-card-header
+                span.title 트렌드
+                    span.title-caption
+                        i.material-icons(title="선택한 기간의 각 지표별 트렌드를 파악 할 수 있습니다") help
+                        | 도움말
+                .ib-card-actions
+                    span.title-caption
+                        i.material-icons(title="선택한 기간의 데이터를 일 / 주 / 월별로 비교할 수 있습니다") help
+                    ul#selectable
+                        li.selectee 일
+                        li.selectee 주
+                        li.selectee 월
+                    .download
+                        i.material-icons cloud_download
+                        span 이미지 다운로드
+            hr.ib-card-hr
+            .ib-card-body#trend-wrapper
+                canvas#trend
 
-                .ib-card
-                    .ib-card-header
-                        .card-title-with-icon
-                            span.title 트렌드
-                            i.material-icons help
-                            span 도움말
-                    .ib-card-body#trend-wrapper
-                        canvas#trend
 
 
 

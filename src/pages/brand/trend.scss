@@ -146,19 +146,20 @@
     direction: ltr;
   }
 }
-ul {
-  padding: 0;
-  list-style-type: none;
-  margin-left: 5px;
+
+canvas#trend {
+  //width: 100% !important;
+  max-height: 400px !important;
 }
+#trend-wrapper {
+  height: 400px;
+}
+
 #selectable {
   margin-bottom: 0;
   margin-right: 20px;
 }
-#selectable .ui-selecting {
-  background-color: #e8ebed;
-  color: #516378;
-}
+
 #selectable .ui-selected {
   background-color: #e8ebed;
   color: #516378;
@@ -167,7 +168,8 @@ ul {
 .button-caption {
   margin-right: 10px;
 }
-.ui-widget-content {
+
+.selectee {
   display: inline-block;
   border-right: 0;
   line-height: 26px;
@@ -194,12 +196,4 @@ ul {
   &:nth-child(3) {
     border-radius: 0 3px 3px 0;
   }
-}
-
-canvas#trend {
-  //width: 100% !important;
-  max-height: 400px !important;
-}
-#trend-wrapper {
-  height: 400px;
 }
