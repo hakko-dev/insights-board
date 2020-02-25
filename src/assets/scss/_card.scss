@@ -68,7 +68,8 @@
           line-height: 1.45;
         }
       }
-      > .ib-card-collapsible {
+      > .bottom-toggler-btn,
+      .bottom-toggler-btn2 {
         height: 26px;
         display: flex;
         font-size: 13px;
@@ -109,7 +110,13 @@
       }
     }
   }
-  > .ib-card-body {
+  > .ib-card-body,
+  .ib-card-body-2 {
     padding: 10px 22px 18px;
   }
+}
+
+.ib-card-hr {
+  height: 10px;
+  margin: 0;
 }

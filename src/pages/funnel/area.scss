@@ -1,10 +1,11 @@
 .radio-label {
   margin-right: 20px;
+  font-size: 14px;
+  color: #516378;
 }
 
 #period {
   width: 100%;
-  min-width: 100px;
   border-collapse: separate;
   box-sizing: border-box;
   box-shadow: none;
@@ -17,11 +18,9 @@
   align-items: center;
   background-color: rgb(249, 249, 249);
   color: rgb(204, 204, 204);
-  cursor: not-allowed;
   border-radius: 4px;
   border-spacing: 0px;
   overflow: hidden;
-  margin: 8px;
   padding: 0px 10px;
   outline: none;
   border-width: 2px;
@@ -35,6 +34,7 @@
     cursor: not-allowed;
     border-spacing: 0px;
   }
+  margin-right: 12px;
 }
 
 #visit-type-button {
@@ -47,4 +47,78 @@
   outline: 0px !important;
   background-color: rgb(242, 242, 242);
   min-height: 38px;
+  .ui-selectmenu-text {
+    color: rgb(153, 153, 153);
+    margin-left: 2px;
+    margin-right: 2px;
+    max-width: calc(100% - 8px);
+    position: absolute;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .ui-selectmenu-icon {
+    margin-top: 3px;
+  }
+}
+
+.ui-menu-item-wrapper {
+  color: #516378;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active {
+  border: 1px solid #f3f4f6;
+  background-color: #f3f4f6;
+  font-weight: normal;
+  color: #516378;
+}
+
+#slider {
+  min-width: 300px;
+  background-color: #e9e9e9;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-radius: 25px;
+  height: 0.7em !important;
+  border: none;
+}
+#custom-handle {
+  width: 2em;
+  height: 1.6em;
+  top: 50%;
+  margin-top: -0.8em;
+  text-align: center;
+  line-height: 1.6em;
+  border-radius: 25px;
+  font-size: 14px;
+  color: #516378;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.download {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  span {
+    line-height: 26px;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: right;
+    color: #516272;
+    user-select: none;
+    cursor: pointer;
+  }
+  .material-icons {
+    font-size: 18px;
+    margin: auto;
+    color: #516378;
+    margin-right: 5px;
+  }
 }
