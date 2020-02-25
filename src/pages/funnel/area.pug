@@ -12,12 +12,66 @@ html(lang="ko")
               i.material-icons.bold tune
               | 필터
             .ib-card-actions
-              button(disabled=true)
-                i.material-icons refresh
-                | 새로고침
-              button
-                i.material-icons add
-                | 생성
+              .ib-card-caption
+                i.material-icons.bold info
+                //- TODO: hover
+                span 모든 퍼널은 선택한 보정치가 반영되어있습니다
+              .ib-card-collapsible
+                //- TODO: click
+                span 접기
+                i.material-icons arrow_drop_up
+          .ib-card-content
+            form
+              .form-row
+                .form-column
+                  label(for='period')
+                    | 기간
+                    i.material-icons help
+                  input#period(type='date', name='period' value="2020-03-01")
+                .form-column
+                  label(for='visit-type')
+                    | 방문 유형
+                    i.material-icons help
+                  select#visit-type
+                    option(value='volvo') 전체 방문객
+                .form-column
+                  label
+                    | 계산 방식
+                    i.material-icons help
+                  input(type='radio', id='평균', value='average', checked='')
+                  label.radio-label(for='평균') 평균
+                  input(type='radio', id='합계', value='sum')
+                  label.radio-label(for='합계') 합계
+                button.submit-button(type='submit', value='Submit')
+                  i.material-icons play_arrow
+                  | 실행
+          .ib-card-header
+            span.title
+              i.material-icons.bold tune
+              | 고급 옵션
+            .ib-card-actions
+              .ib-card-collapsible
+                //- TODO: click
+                span 펼치기
+                i.material-icons arrow_drop_down
+          .ib-card-content
+            form
+              label
+                | 보정치 설정
+                i.material-icons info
+                div
+                  input#Total(type='radio', disabled='', value='totalRatio', checked='')
+                  label(for='Total') Total
+                div
+                  input#Wi-Fi(type='radio', disabled='', value='wifiActiveRatio')
+                  label(for='Wi-Fi') Wi-Fi
+                div
+                  input(type='radio', id='적외선', disabled='', value='wifiBotemRatio')
+                  label(for='적외선') 적외선
+              label
+                | 최소 가용성
+                i.material-icons info
+
         .ib-card
           .ib-card-header
             span.title 영역 퍼널
@@ -28,7 +82,4 @@ html(lang="ko")
               button
                 i.material-icons add
                 | 생성
-
-
     include ../../components/footer
-

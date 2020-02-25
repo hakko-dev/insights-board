@@ -1,0 +1,80 @@
+form {
+  .form-row {
+    display: flex;
+    align-items: center;
+    .form-column {
+      margin-bottom: 5px;
+      margin-right: 40px;
+      > label {
+        display: block;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.33;
+        color: rgb(81, 99, 120);
+        .material-icons {
+          font-size: inherit;
+          font-size: 15px;
+          vertical-align: top;
+          font-weight: 400;
+          font-style: normal;
+          display: inline-block;
+          line-height: 1;
+          text-transform: none;
+          letter-spacing: normal;
+          word-wrap: normal;
+          white-space: nowrap;
+          direction: ltr;
+          -webkit-font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+          margin-left: 12px;
+        }
+        &.radio-label {
+          display: inline;
+          font-size: 14px;
+          line-height: 1.43;
+          text-align: left;
+          cursor: pointer;
+          font-weight: 600;
+          color: #516378;
+        }
+      }
+      input[type='radio'] {
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: start;
+        background-color: initial;
+        cursor: default;
+        -webkit-appearance: radio;
+        margin: 3px 0.5ex;
+      }
+    }
+  }
+  .submit-button {
+    transition: all 0.18s ease-in-out 0s;
+    min-width: 80px;
+    box-sizing: border-box;
+    max-width: 150px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    user-select: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 67, 107);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(54, 67, 107);
+    border-image: initial;
+    height: 48px;
+    box-shadow: rgba(81, 99, 120, 0.1) 0px 2px 4px 0px;
+    padding: 0px;
+    margin: 2px;
+    border-radius: 4px;
+    .material-icons {
+      color: rgb(255, 255, 255);
+    }
+  }
+}
