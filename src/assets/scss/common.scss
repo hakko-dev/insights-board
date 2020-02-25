@@ -1,23 +1,25 @@
-@import "config";
-@import "sidebar";
-@import "navbar";
-@import "card";
-@import "button";
-@import "table";
-@import "span";
-
-body{
+@import 'config';
+@import 'sidebar';
+@import 'navbar';
+@import 'card';
+@import 'button';
+@import 'table';
+@import 'span';
+@import 'form';
+body {
   background-color: rgba(81, 99, 120, 0.1);
-  font-family: Avenir, "Avenir Next", Helvetica, Arial, "Apple SD Gothic Neo", "Nanum Barun Gothic", "Malgun Gothic", 맑은고딕, 돋움, Dotum, "Noto Sans Japanese", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", メイリオ, sans-serif;
+  font-family: Avenir, 'Avenir Next', Helvetica, Arial, 'Apple SD Gothic Neo', 'Nanum Barun Gothic',
+    'Malgun Gothic', 맑은고딕, 돋움, Dotum, 'Noto Sans Japanese', 'Hiragino Kaku Gothic ProN',
+    'ヒラギノ角ゴ ProN W3', メイリオ, sans-serif;
 }
 
-#container{
+#container {
   position: absolute;
   left: 0;
   top: 70px;
   right: 0;
   height: calc(100% - 90px);
-  #content{
+  #content {
     max-width: 1600px;
     min-width: calc(100vw - 256px);
     position: absolute;
@@ -29,17 +31,17 @@ body{
     margin: auto;
   }
 
-  #sidebar.collapse.show + #content{
-    transition: .18s ease;
-    transform: translate(0,0);
+  #sidebar.collapse.show + #content {
+    transition: 0.18s ease;
+    transform: translate(0, 0);
     left: 256px;
   }
 
-  #sidebar.collapsing + #content, #sidebar.collapse + #content{
-    transition: .18s ease;
-    transform: translate(0,0);
+  #sidebar.collapsing + #content,
+  #sidebar.collapse + #content {
+    transition: 0.18s ease;
+    transform: translate(0, 0);
     height: initial !important;
     left: 0;
   }
 }
-

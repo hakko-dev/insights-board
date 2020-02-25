@@ -1,4 +1,4 @@
-.ib-card{
+.ib-card {
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(81, 99, 120, 0.1) 0px 1px 2px 0px;
   margin-bottom: 20px;
@@ -7,8 +7,7 @@
   border-style: solid;
   border-color: rgba(81, 99, 120, 0.2);
   border-image: initial;
-  //padding: 10px 22px 18px;
-  >.ib-card-header {
+  > .ib-card-header {
     width: auto;
     font-size: 15px;
     font-weight: 600;
@@ -21,25 +20,102 @@
     align-items: center;
     padding: 15px 22px;
     justify-content: space-between;
-    .bottom-toggler-btn{
+    .bottom-toggler-btn {
       flex-shrink: 0;
     }
-    .card-title-with-icon{
+    .card-title-with-icon {
       display: flex;
       align-items: center;
-      i{
+      i {
         margin-right: 10px;
       }
     }
-     span.title {
+    span.title {
       line-height: 26px;
       white-space: nowrap;
-    }
-    >.ib-card-actions{
       display: flex;
+      justify-content: start;
+      align-items: center;
+      .material-icons {
+        margin-right: 10px;
+      }
+    }
+    > .ib-card-actions {
+      display: flex;
+      > .ib-card-caption {
+        font-size: 10px;
+        font-weight: 400;
+        max-width: 500px;
+        min-width: 200px;
+        text-align: right;
+        margin: auto 0;
+        margin-right: 20px;
+        color: #889aae;
+        cursor: help;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        cursor: help;
+        .material-icons {
+          font-size: 12px;
+          color: inherit;
+          margin-right: 2px !important;
+        }
+        > span {
+          line-height: 1.45;
+        }
+      }
+      > .bottom-toggler-btn,
+      .bottom-toggler-btn2 {
+        height: 26px;
+        display: flex;
+        font-size: 13px;
+        font-weight: normal;
+        text-align: right;
+        color: rgb(81, 98, 114);
+        user-select: none;
+        cursor: pointer;
+        margin-left: 1rem;
+        span {
+          font-size: 13px;
+          font-weight: normal;
+          text-align: right;
+          color: rgb(81, 98, 114);
+          user-select: none;
+          cursor: pointer;
+          line-height: 26px;
+        }
+        .material-icons {
+          font-family: Material Icons;
+          font-weight: 400;
+          font-style: normal;
+          display: inline-block;
+          text-transform: none;
+          letter-spacing: normal;
+          word-wrap: normal;
+          white-space: nowrap;
+          direction: ltr;
+          -webkit-font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+          -moz-osx-font-smoothing: grayscale;
+          font-feature-settings: 'liga';
+          line-height: 26px;
+          font-size: 18px;
+          color: rgb(81, 99, 120);
+          margin: auto !important;
+        }
+      }
     }
   }
-  >.ib-card-body{
+  > .ib-card-body,
+  .ib-card-body-2 {
     padding: 10px 22px 18px;
   }
+}
+.ib-card-hr {
+  height: 10px;
+  margin: 0;
 }
