@@ -1,0 +1,119 @@
+.ib-card-header-2{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  .card-title-with-icon{
+    display: flex;
+    align-items: center;
+    i{
+      margin-right: 10px;
+    }
+    span{
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.33;
+      color: #516378;
+    }
+  }
+  .bottom-toggler-btn2{
+    height: 26px;
+    display: flex;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: right;
+    color: #516272;
+    user-select: none;
+    cursor: pointer;
+    margin-left: 1rem;
+    span{
+      line-height: 26px;
+    }
+    i{
+      line-height: 26px;
+      font-size: 18px;
+      color: #516378;
+      margin: auto !important;
+    }
+  }
+}
+.filter-content{
+  display: flex;
+  align-items: center;
+  .filters{
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    .filter{
+      margin-bottom: 15px;
+      margin-right: 10px;
+      .title{
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.33;
+        margin-bottom: 8px;
+        color: rgb(81, 99, 120);
+        span{
+          margin-right: 10px;
+        }
+        i{
+          font-size: inherit;
+          vertical-align: top;
+          color: #97a6b2;
+        }
+      }
+      .body{
+        select{
+          border-color: rgb(230, 230, 230);
+          border-radius: 4px;
+          border-style: solid;
+          border-width: 1px;
+          height: 38px;
+          width: 200px;
+        }
+        label{
+          line-height: 38px;
+          font-size: 14px;
+          //line-height: 1.43;
+          text-align: left;
+          cursor: pointer;
+          input{
+            margin-right: 5px;
+          }
+          &:nth-child(2){
+            margin-left: 15px;
+          }
+        }
+      }
+
+    }
+  }
+  button{
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 48px;
+    box-shadow: rgba(81, 99, 120, 0.1) 0px 2px 4px 0px;
+    padding: 0px;
+    margin: 2px;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 67, 107);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(54, 67, 107);
+    border-image: initial;
+    width: 120px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    user-select: none;
+    transition: all 0.18s ease-in-out 0s;
+    outline: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i{
+      color: white;
+      margin-right: 15px;
+    }
+  }
+}
