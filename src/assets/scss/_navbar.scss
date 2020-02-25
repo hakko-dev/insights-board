@@ -1,0 +1,97 @@
+#navbar{
+  padding: 0;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  height: 70px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(81, 99, 120, 0.2) 0px 1px 2px 0px;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+  align-items: center;
+
+  .brand-wrapper{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 70px;
+    width: calc(257px);
+    padding-left: 20px;
+    box-sizing: border-box;
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    color: rgba(0, 0, 0, 0.9);
+    >.navbar-brand{
+      font-size: 18px;
+      font-weight: 600;
+      text-overflow: ellipsis;
+      line-height: 22px;
+      transition-property: color;
+      transition-duration: 1s;
+      transition-timing-function: ease-in-out;
+      transition-delay: 0s;
+      overflow: hidden;
+    }
+  }
+
+  .navbar-toggler{
+    border: none;
+    outline: none;
+  }
+  .navbar-content{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0px 20px;
+    i.material-icons{
+      font-size: 24px;
+      color: rgba(81, 99, 120, 0.4);
+      margin-left: 10px;
+    }
+    input{
+      transition-duration: 1s;
+      transition-timing-function: ease-in-out;
+      transition-delay: 0s;
+      //cursor: not-allowed;
+      font-size: 18px;
+      font-weight: 500;
+      -webkit-box-flex: 1;
+      flex-grow: 1;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: left;
+      background-color: transparent;
+      line-height: 34px;
+      padding: 0px 10px;
+      border-width: initial;
+      border-style: none;
+      border-color: initial;
+      border-image: initial;
+      outline: 0 !important;
+      &::placeholder{
+        color: rgba(81, 99, 120, 0.4);
+      }
+    }
+    >form{
+      width: 100%;
+      flex-flow: row;
+    }
+  }
+  #navbarDropdown{
+    font-size: 15px;
+    font-weight: 600;
+    max-width: 170px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .nav-item.dropdown{
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,72 @@
+doctype html
+html(lang="ko")
+    include ../../components/head
+    body
+        include ../../components/navbar
+        #container
+            include ../../components/sidebar
+            #content
+                .ib-card
+                    .ib-card-header
+                        span.title 엑셀 다운로드
+                        .ib-card-actions
+                            button(disabled=true)
+                                i.material-icons refresh
+                                | 새로고침
+                            button
+                                i.material-icons add
+                                | 생성
+
+                    table.ib-table
+                        tbody
+                            tr
+                                th 고유번호
+                                th 시작
+                                th 끝
+                                th 단위
+                                th 가용성
+                                th 생성 일자
+                                th 상태
+                                th 크기
+                                th 다운로드
+                            tr
+                                td 1
+                                td 2018-10-30
+                                td 2019-12-12
+                                td day
+                                td 0.7
+                                td 2018-04-24
+                                td
+                                    span.bullet.green 완료
+                                td 15KB
+                                td
+                                    a
+                                        i.fa.fa-file-excel-o.fa-2x
+                            tr
+                                td 2
+                                td 2018-10-30
+                                td 2019-12-12
+                                td day
+                                td 0.7
+                                td 2018-04-24
+                                td
+                                    span.bullet.green 완료
+                                td 15KB
+                                td
+                                    a
+                                        i.fa.fa-file-excel-o.fa-2x
+                    ul.ib-pagination
+                        li.prev
+                            a
+                        li.active
+                            a 1
+                        li
+                            a 2
+                        li
+                            a 3
+                        li.next
+                            a
+
+
+        include ../../components/footer
+

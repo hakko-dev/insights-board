@@ -1,0 +1,14 @@
+span.bullet{
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: .25em;
+  &.green{
+    background-color: #5cb85c;
+  }
+}
