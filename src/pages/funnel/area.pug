@@ -15,9 +15,12 @@ html(lang="ko")
               | 필터
             .ib-card-actions
               .ib-card-caption
-                i.material-icons.bold info
-                //- TODO: hover
-                span 모든 퍼널은 선택한 보정치가 반영되어있습니다
+                .description(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
+														"<b>Wi-Fi 활성화 비율</b>: Wi-Fi 활성화 디바이스 비율<br/>" +
+														"<b>랜덤화 비율</b>: 맥어드레스 랜덤화 디바이스 비율<br/>" +
+														"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]")
+                  i.material-icons.bold info
+                  span 모든 퍼널은 선택한 보정치가 반영되어있습니다
               .bottom-toggler-btn(data-opened="true")
                 span 접기
                 i.material-icons arrow_drop_up
@@ -27,19 +30,19 @@ html(lang="ko")
                 .form-column
                   label(for='period')
                     | 기간
-                    i.material-icons help
+                    i.material-icons(title="분석 기간을 선택합니다") help
                   input#period(autocomplete="off")
                 .form-column
                   label(for='visit-type')
                     | 방문 유형
-                    i.material-icons help
+                    i.material-icons(title="신규: 1회 방문<br/>재방문: 2-3회 방문<br/>VIP: 4회 이상 방문") help
                   select#visit-type
                     option(value='all') 전체 방문객
                     option(value='part') 일부 방문객
                 .form-column
                   label
                     | 계산 방식
-                    i.material-icons help
+                    i.material-icons(title="평균: 일 평균 값<br/>합계: 선택한 기간의 합") help
                   .radio-group
                     input(type='radio', value='average', checked='', name='calculate')
                     label.radio-label(for='평균') 평균
@@ -63,7 +66,10 @@ html(lang="ko")
                 .form-column
                   label
                     | 보정치 설정
-                    i.material-icons help
+                    i.material-icons(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
+														"<b>Wi-Fi 활성화 비율</b>: Wi-Fi 활성화 디바이스 비율<br/>" +
+														"<b>랜덤화 비율</b>: 맥어드레스 랜덤화 디바이스 비율<br/>" +
+														"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]") help
                   .radio-group
                     input(type='radio', checked='', name='revise')
                     label.radio-label Total
@@ -74,7 +80,7 @@ html(lang="ko")
                 .form-column
                   label
                     | 최소 가용성
-                    i.material-icons help
+                    i.material-icons(title="가용성: 영업시간 동안 센서가 가동된 시간의 비율입니다 (0 이상 1 이하, 기본값 0.7).<br/>설정된 가용성 이상 운영된 날짜의 퍼널 데이터만을 가져와서 계산합니다.") help
                   #slider
                     #custom-handle.ui-slider-handle
 
@@ -127,5 +133,3 @@ html(lang="ko")
           }
         });
       } );
-
-
