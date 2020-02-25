@@ -24,7 +24,7 @@ html(lang="ko")
               .bottom-toggler-btn(data-opened="true")
                 span 접기
                 i.material-icons arrow_drop_up
-          .ib-card-body
+          .ib-card-body#ib-card-body
             form
               .form-row
                 .form-column
@@ -136,7 +136,7 @@ html(lang="ko")
               $(this).data('opened', !isOpened)
               $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
               $(this).find('span').text(isOpened ? "펼치기" : "접기")
-              $(".ib-card-body").toggle('blind');
+              $("#ib-card-body").toggle('blind');
           })
           // 카드 접기/펼치기
           $('.bottom-toggler-btn2').on('click', function () {
