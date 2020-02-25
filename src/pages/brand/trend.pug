@@ -1,6 +1,8 @@
 doctype html
 html(lang="ko")
-    include ../../components/head
+    head
+        include ../../components/head.pug
+        link(rel="stylesheet" href="./trend.scss")
     body
         include ../../components/navbar
         #container
@@ -12,37 +14,87 @@ html(lang="ko")
                             i.material-icons tune
                             span.title 필터
                         .ib-card-actions
-                            .description(title="That&apos;s what this widget is")
+                            .description(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
+														"<b>Wi-Fi 활성화 비율</b>: Wi-Fi 활성화 디바이스 비율<br/>" +
+														"<b>랜덤화 비율</b>: 맥어드레스 랜덤화 디바이스 비율<br/>" +
+														"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]")
                                 i.material-icons info
                                 span 모든 퍼널은 선택한 보정치가 반영되어있습니다
                             .bottom-toggler-btn(data-opened="true")
                                 span 접기
                                 i.material-icons arrow_drop_up
                     .ib-card-body
-                        span wefewf
-                    .ib-card-header
-                        div.card-title-with-icon
-                            i.material-icons tune
-                            span.title 필터
-                        .ib-card-actions
-                            .description(title="That&apos;s what this widget is")
-                                i.material-icons info
-                                span 모든 퍼널은 선택한 보정치가 반영되어있습니다
-                            .bottom-toggler-btn(data-opened="true")
-                                span 접기
-                                i.material-icons arrow_drop_up
-                    .ib-card-body
-                        span frw
+                        .filter-content
+                            .filters
+                                .filter
+                                    .title
+                                        span 매장 유형
+                                        i.material-icons(title="분석할 매장 유형을 선택합니다") help
+                                    .body
+                                        select
+                                            option 모든 매장
+                                .filter
+                                    .title
+                                        span 기간
+                                        i.material-icons(title="분석 기간을 선택합니다") help
+                                    .body
+                                        select
+                                            option 모든 매장
+                                .filter
+                                    .title
+                                        span 방문 유형
+                                        i.material-icons(title="<b>신규</b>: 1회 방문<br/>" +
+																				"<b>재방문</b>: 2-3회 방문<br/>" +
+																				"<b>VIP</b>: 4회 이상 방문") help
+                                    .body
+                                        select
+                                            option 모든 매장
+                                .filter
+                                    .title
+                                        span 계산 방식
+                                        i.material-icons(title="<b>평균</b>: 일 평균 값<br/>" +
+																				"<b>합계</b>: 선택한 기간의 합") help
+                                    .body
+                                        label
+                                            input(type="radio" name="calc-type")
+                                            | 평균
+                                        label
+                                            input(type="radio" name="calc-type")
+                                            | 합계
+
+                            button
+                                i.material-icons play_arrow
+                                | 실행
+                        .ib-card-header-2
+                            div.card-title-with-icon
+                                i.material-icons tune
+                                span.title 필터
+                            .ib-card-actions
+                                .bottom-toggler-btn2(data-opened="true")
+                                    span 접기
+                                    i.material-icons arrow_drop_up
+                        .ib-card-body-2
+                            span frw
 
 
         include ../../components/footer
 
         script.
-            // 카드 접기/펼치기
-            $('.bottom-toggler-btn').on('click', function () {
-                var isOpened = $(this).data('opened')
-                $(this).data('opened', !isOpened)
-                $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
-                $(this).find('span').text(isOpened ? "펼치기" : "접기")
-                $(this).next().toggle('blind');
+            $(function(){
+                // 카드 접기/펼치기
+                $('.bottom-toggler-btn').on('click', function () {
+                    var isOpened = $(this).data('opened')
+                    $(this).data('opened', !isOpened)
+                    $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
+                    $(this).find('span').text(isOpened ? "펼치기" : "접기")
+                    $(".ib-card-body").toggle('blind');
+                })
+                // 카드 접기/펼치기
+                $('.bottom-toggler-btn2').on('click', function () {
+                    var isOpened = $(this).data('opened')
+                    $(this).data('opened', !isOpened)
+                    $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
+                    $(this).find('span').text(isOpened ? "펼치기" : "접기")
+                    $(".ib-card-body-2").toggle('blind');
+                })
             })

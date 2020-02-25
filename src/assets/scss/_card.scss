@@ -21,6 +21,9 @@
     align-items: center;
     padding: 15px 22px;
     justify-content: space-between;
+    .bottom-toggler-btn{
+      flex-shrink: 0;
+    }
     .card-title-with-icon{
       display: flex;
       align-items: center;

@@ -16,3 +16,12 @@ i.material-icons{
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
 }
+.ui-tooltip, .arrow:after {
+  background: white;
+  //border: 2px solid white;
+}
+.ui-tooltip {
+  padding: 12px 16px;
+  color: rgb(81, 99, 120);
+  font-size: 12px;
+}
