@@ -1,0 +1,48 @@
+doctype html
+html(lang="ko")
+    include ../../components/head
+    body
+        include ../../components/navbar
+        #container
+            include ../../components/sidebar
+            #content
+                .ib-card
+                    .ib-card-header
+                        div.card-title-with-icon
+                            i.material-icons tune
+                            span.title 필터
+                        .ib-card-actions
+                            .description(title="That&apos;s what this widget is")
+                                i.material-icons info
+                                span 모든 퍼널은 선택한 보정치가 반영되어있습니다
+                            .bottom-toggler-btn(data-opened="true")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body
+                        span wefewf
+                    .ib-card-header
+                        div.card-title-with-icon
+                            i.material-icons tune
+                            span.title 필터
+                        .ib-card-actions
+                            .description(title="That&apos;s what this widget is")
+                                i.material-icons info
+                                span 모든 퍼널은 선택한 보정치가 반영되어있습니다
+                            .bottom-toggler-btn(data-opened="true")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body
+                        span frw
+
+
+        include ../../components/footer
+
+        script.
+            // 카드 접기/펼치기
+            $('.bottom-toggler-btn').on('click', function () {
+                var isOpened = $(this).data('opened')
+                $(this).data('opened', !isOpened)
+                $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
+                $(this).find('span').text(isOpened ? "펼치기" : "접기")
+                $(this).next().toggle('blind');
+            })

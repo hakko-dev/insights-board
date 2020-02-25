@@ -21,13 +21,22 @@
     align-items: center;
     padding: 15px 22px;
     justify-content: space-between;
-
-    > span.title {
+    .card-title-with-icon{
+      display: flex;
+      align-items: center;
+      i{
+        margin-right: 10px;
+      }
+    }
+     span.title {
       line-height: 26px;
       white-space: nowrap;
     }
     >.ib-card-actions{
       display: flex;
     }
+  }
+  >.ib-card-body{
+    padding: 10px 22px 18px;
   }
 }
