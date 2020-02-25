@@ -1,6 +1,8 @@
 doctype html
 html(lang="ko")
-  include ../../components/head
+  head
+    include ../../components/head
+    link(rel='stylesheet', href='./area.scss')
   body
     include ../../components/navbar
     #container
@@ -20,29 +22,31 @@ html(lang="ko")
                 //- TODO: click
                 span 접기
                 i.material-icons arrow_drop_up
-          .ib-card-content
+          .ib-card-body
             form
               .form-row
                 .form-column
                   label(for='period')
                     | 기간
                     i.material-icons help
-                  input#period(type='date', name='period' value="2020-03-01")
+                  input#period(autocomplete="off", placeholder="2019-11-26 - 2020-02-25")
                 .form-column
                   label(for='visit-type')
                     | 방문 유형
                     i.material-icons help
                   select#visit-type
-                    option(value='volvo') 전체 방문객
+                    option(value='all') 전체 방문객
+                    option(value='part') 일부 방문객
                 .form-column
                   label
                     | 계산 방식
                     i.material-icons help
-                  input(type='radio', id='평균', value='average', checked='')
-                  label.radio-label(for='평균') 평균
-                  input(type='radio', id='합계', value='sum')
-                  label.radio-label(for='합계') 합계
-                button.submit-button(type='submit', value='Submit')
+                  .radio-group
+                    input(type='radio', value='average', checked='', name='calculate')
+                    label.radio-label(for='평균') 평균
+                    input(type='radio', value='sum', name='calculate')
+                    label.radio-label(for='합계') 합계
+                button.submit-button(type='submit', value='Submit', name='')
                   i.material-icons play_arrow
                   | 실행
           .ib-card-header
@@ -54,23 +58,6 @@ html(lang="ko")
                 //- TODO: click
                 span 펼치기
                 i.material-icons arrow_drop_down
-          .ib-card-content
-            form
-              label
-                | 보정치 설정
-                i.material-icons info
-                div
-                  input#Total(type='radio', disabled='', value='totalRatio', checked='')
-                  label(for='Total') Total
-                div
-                  input#Wi-Fi(type='radio', disabled='', value='wifiActiveRatio')
-                  label(for='Wi-Fi') Wi-Fi
-                div
-                  input(type='radio', id='적외선', disabled='', value='wifiBotemRatio')
-                  label(for='적외선') 적외선
-              label
-                | 최소 가용성
-                i.material-icons info
 
         .ib-card
           .ib-card-header
@@ -83,3 +70,13 @@ html(lang="ko")
                 i.material-icons add
                 | 생성
     include ../../components/footer
+    script(src="/assets/externals/jquery-date-range-picker.js")
+    script.
+      $( function() {
+        $( "#period" ).daterangepicker();
+      } );
+      $( function() {
+        $( "#visit-type" ).selectmenu();
+      } );
+
+
