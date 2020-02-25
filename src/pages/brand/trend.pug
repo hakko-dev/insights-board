@@ -76,6 +76,16 @@ html(lang="ko")
                         .ib-card-body-2
                             span frw
 
+                .ib-card
+                    .ib-card-header
+                        .card-title-with-icon
+                            span.title 트렌드
+                            i.material-icons help
+                            span 도움말
+                    .ib-card-body#trend-wrapper
+                        canvas#trend
+
+
 
         include ../../components/footer
 
@@ -98,3 +108,4 @@ html(lang="ko")
                     $(".ib-card-body-2").toggle('blind');
                 })
             })
+        script(src="./trend.js")
