@@ -1,4 +1,4 @@
-.ib-card{
+.ib-card {
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(81, 99, 120, 0.1) 0px 1px 2px 0px;
   margin-bottom: 20px;
@@ -8,7 +8,7 @@
   border-color: rgba(81, 99, 120, 0.2);
   border-image: initial;
   //padding: 10px 22px 18px;
-  >.ib-card-header {
+  > .ib-card-header {
     width: auto;
     font-size: 15px;
     font-weight: 600;
@@ -21,25 +21,31 @@
     align-items: center;
     padding: 15px 22px;
     justify-content: space-between;
-    .bottom-toggler-btn{
+    .bottom-toggler-btn {
       flex-shrink: 0;
     }
-    .card-title-with-icon{
+    .card-title-with-icon {
       display: flex;
       align-items: center;
-      i{
+      i {
         margin-right: 10px;
       }
     }
-     span.title {
+    span.title {
       line-height: 26px;
       white-space: nowrap;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      .material-icons {
+        margin-right: 10px;
+      }
     }
-    >.ib-card-actions{
+    > .ib-card-actions {
       display: flex;
     }
   }
-  >.ib-card-body{
+  > .ib-card-body {
     padding: 10px 22px 18px;
   }
 }
