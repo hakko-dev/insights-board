@@ -1,0 +1,149 @@
+doctype html
+html(lang="ko")
+  head
+    include ../../components/head
+    link(rel='stylesheet', href='./overview.scss')
+  body
+    include ../../components/navbar
+    #container
+      include ../../components/sidebar
+      #content
+        .ib-card
+          .ib-card-header
+            span.title
+              i.material-icons.bold tune
+              | 필터
+            .ib-card-actions
+              .ib-card-caption
+                .description(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
+														"<b>Wi-Fi 활성화 비율</b>: Wi-Fi 활성화 디바이스 비율<br/>" +
+														"<b>랜덤화 비율</b>: 맥어드레스 랜덤화 디바이스 비율<br/>" +
+														"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]")
+                  i.material-icons.bold info
+                  span 모든 퍼널은 선택한 보정치가 반영되어있습니다
+              .bottom-toggler-btn(data-opened="true")
+                span 접기
+                i.material-icons arrow_drop_up
+          .ib-card-body
+            form
+              .form-row
+                .form-column
+                  label
+                    | 매장 유형
+                    i.material-icons(title="분석할 매장 유형을 선택합니다.") help
+                  select#store-type
+                    option(value='all') 모든 매장
+                    option(value='part') 일부 매장
+                .form-column
+                  label
+                    | 기간
+                    i.material-icons(title="분석 기간을 선택합니다") help
+                  input#period(autocomplete="off")
+                .form-column
+                  label
+                    | 방문 유형
+                    i.material-icons(title="신규: 1회 방문<br/>재방문: 2-3회 방문<br/>VIP: 4회 이상 방문") help
+                  select#visit-type
+                    option(value='all') 전체 방문객
+                    option(value='part') 일부 방문객
+                .form-column
+                  label
+                    | 계산 방식
+                    i.material-icons(title="평균: 일 평균 값<br/>합계: 선택한 기간의 합") help
+                  .radio-group
+                    input(type='radio', value='average', checked='', name='calculate')
+                    label.radio-label(for='평균') 평균
+                    input(type='radio', value='sum', name='calculate')
+                    label.radio-label(for='합계') 합계
+                button.submit-button(type='submit', value='Submit', name='')
+                  i.material-icons play_arrow
+                  | 실행
+          .ib-card-header
+            span.title
+              i.material-icons.bold tune
+              | 고급 옵션
+            .ib-card-actions
+              .bottom-toggler-btn2(data-opened="true")
+                span 접기
+                i.material-icons arrow_drop_up
+
+          .ib-card-body-2
+            form
+              .form-row
+                .form-column
+                  label
+                    | 보정치 설정
+                    i.material-icons(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
+														"<b>Wi-Fi 활성화 비율</b>: Wi-Fi 활성화 디바이스 비율<br/>" +
+														"<b>랜덤화 비율</b>: 맥어드레스 랜덤화 디바이스 비율<br/>" +
+														"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]") help
+                  .radio-group
+                    input(type='radio', checked='', name='revise')
+                    label.radio-label Total
+                    input(type='radio', value='sum', name='revise')
+                    label.radio-label Wi-Fi
+                    input(type='radio', value='sum', name='revise')
+                    label.radio-label 적외선
+                .form-column
+                  label
+                    | 최소 가용성
+                    i.material-icons(title="가용성: 영업시간 동안 센서가 가동된 시간의 비율입니다 (0 이상 1 이하, 기본값 0.7).<br/>설정된 가용성 이상 운영된 날짜의 퍼널 데이터만을 가져와서 계산합니다.") help
+                  #slider
+                    #custom-handle.ui-slider-handle
+
+        .ib-card
+          .ib-card-header
+            span.title
+              | 전체 퍼널 현황
+              span.title-caption
+                i.material-icons(title="1. 통행객<br/><br/>2. 방문객<br/>매장 방문 1초 이상<br/>(브랜드 마다 다를 수 있음)<br/><br/>3. 체류객<br/>매장 방문 1분 경과<br/>(브랜드 마다 다를 수 있음)") help
+                | 도움말
+            .ib-card-actions
+              .download
+                i.material-icons cloud_download
+                span 이미지 다운로드
+          hr.ib-card-hr
+
+
+
+    include ../../components/footer
+    script(src="/assets/externals/jquery-date-range-picker.js")
+    script.
+      $( function() {
+        $( "#period" ).daterangepicker();
+      } );
+      $( function() {
+        $( "#store-type" ).selectmenu();
+      } );
+      $( function() {
+        $( "#visit-type" ).selectmenu();
+      } );
+      $(function(){
+          // 카드 접기/펼치기
+          $('.bottom-toggler-btn').on('click', function () {
+              var isOpened = $(this).data('opened')
+              $(this).data('opened', !isOpened)
+              $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
+              $(this).find('span').text(isOpened ? "펼치기" : "접기")
+              $(".ib-card-body").toggle('blind');
+          })
+          // 카드 접기/펼치기
+          $('.bottom-toggler-btn2').on('click', function () {
+              var isOpened = $(this).data('opened')
+              $(this).data('opened', !isOpened)
+              $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
+              $(this).find('span').text(isOpened ? "펼치기" : "접기")
+              $(".ib-card-body-2").toggle('blind');
+          })
+      })
+      $( function() {
+        var handle = $( "#custom-handle" );
+        $( "#slider" ).slider({
+          create: function() {
+            handle.text( $( this ).slider( "value" ) );
+          },
+          slide: function( event, ui ) {
+            handle.text( ui.value );
+          }
+        });
+      } );
