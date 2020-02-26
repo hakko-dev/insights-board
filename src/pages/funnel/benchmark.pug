@@ -1,200 +1,286 @@
 doctype html
 html(lang="ko")
-  head
-    include ../../components/head
-    link(rel='stylesheet', href='./benchmark.scss')
-  body
-    include ../../components/navbar
-    #container
-      include ../../components/sidebar
-      #content
-        .ib-card
-          .ib-card-header
-            span.title
-              i.material-icons.bold tune
-              | 필터
-            .ib-card-actions
-              .ib-card-caption
-                .description(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
-														"<b>Wi-Fi 활성화 비율</b>: Wi-Fi 활성화 디바이스 비율<br/>" +
-														"<b>랜덤화 비율</b>: 맥어드레스 랜덤화 디바이스 비율<br/>" +
-														"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]")
-                  i.material-icons.bold info
-                  span 모든 퍼널은 선택한 보정치가 반영되어있습니다
-              .bottom-toggler-btn(data-opened="true")
-                span 접기
-                i.material-icons arrow_drop_up
-          .ib-card-body#ib-card-body
-            form
-              .form-row
+    head
+        include ../../components/head
+        link(rel='stylesheet', href='./benchmark.scss')
+    body
+        include ../../components/navbar
+        #container
+            include ../../components/sidebar
+            #content
+                .ib-card
+                    .ib-card-header
+                        span.title
+                            i.material-icons.bold tune
+                            | 필터
+                        .ib-card-actions
+                            .ib-card-caption
+                                .description(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
+																"<b>Wi-Fi 활성화 비율</b>: Wi-Fi 활성화 디바이스 비율<br/>" +
+																"<b>랜덤화 비율</b>: 맥어드레스 랜덤화 디바이스 비율<br/>" +
+																"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]")
+                                    i.material-icons.bold info
+                                    span 모든 퍼널은 선택한 보정치가 반영되어있습니다
+                            .bottom-toggler-btn(data-blind="true" data-opened="true" data-target="#body2")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body2
+                        form
+                            .form-row
 
-                .form-column
-                  label
-                    | 기간
-                    i.material-icons(title="분석 기간을 선택합니다") help
-                  input#period(autocomplete="off")
-                .form-column
-                  label
-                    | 방문 유형
-                    i.material-icons(title="신규: 1회 방문<br/>재방문: 2-3회 방문<br/>VIP: 4회 이상 방문") help
-                  select#visit-type
-                    option(value='all') 전체 방문객
-                    option(value='part') 일부 방문객
+                                .form-column
+                                    label
+                                        | 기간
+                                        i.material-icons(title="분석 기간을 선택합니다") help
+                                    input#period(autocomplete="off")
+                                .form-column
+                                    label
+                                        | 방문 유형
+                                        i.material-icons(title="신규: 1회 방문<br/>재방문: 2-3회 방문<br/>VIP: 4회 이상 방문") help
+                                    select#visit-type
+                                        option(value='all') 전체 방문객
+                                        option(value='part') 일부 방문객
 
-                button.submit-button(type='submit', value='Submit', name='')
-                  i.material-icons play_arrow
-                  | 실행
-        .ib-card
-            .ib-card-header
-                span.title 벤치마크
-                    span.title-caption
-                        i.material-icons(title="선택한 기간 동안의 매장 / 벤치마크 대상의 일 평균 퍼널 현황이 나타납니다.<br/>벤치마크 대상을 선택하여 매장의 퍼포먼스를 비교 할 수 있습니다.") help
-                        | 도움말
-                .ib-card-actions
-                    .download
-                        i.material-icons cloud_download
-                        span 이미지 다운로드
-            hr.ib-card-hr
-        .ib-card
-          .ib-card-header
-            span.title
-              | WalkInsights Demo Shop vs WalkInsights Demo
-              .ib-card-caption
-                .description.left(title="매장의 지표별 수준을 확인 할 수 있습니다.")
-                  i.material-icons.bold help
-                  span 도움말
-            .ib-card-actions
-              .description.left(title="<b>매우나쁨</b> (백분위 ~20%)<br/><b>나쁨</b> (백분위 20~40%)<br/><b>보통</b> (백분위 40~60%)<br/><b>좋음</b>(백분위 60~80%)<br/><b>매우좋음</b>(백분위 80~100%)")
-                  i.material-icons.bold help
-              .tags
-                  .tag
-                    div.mark.very-bad
-                    span.text 매우나쁨
-                  .tag
-                    div.mark.bad
-                    span.text 나쁨
-                  .tag
-                    div.mark.normal
-                    span.text 보통
-                  .tag
-                    div.mark.good
-                    span.text 좋음
-                  .tag
-                    div.mark.very-good
-                    span.text 매우좋음
+                                button.submit-button(type='submit', value='Submit', name='')
+                                    i.material-icons play_arrow
+                                    | 실행
+                .ib-card
+                    .ib-card-header
+                        span.title 벤치마크
+                            span.title-caption
+                                i.material-icons(title="선택한 기간 동안의 매장 / 벤치마크 대상의 일 평균 퍼널 현황이 나타납니다.<br/>벤치마크 대상을 선택하여 매장의 퍼포먼스를 비교 할 수 있습니다.") help
+                                | 도움말
+                        .ib-card-actions
+                            .download
+                                i.material-icons cloud_download
+                                span 이미지 다운로드
+                    .ib-card-body.no-padding
+                        table.benchmark-table
+                            thead
+                                tr.selected-row
+                                    th
+                                        i.material-icons home
+                                    th.left WalkInsights Demo Shop
+                                    th 2.06만
+                                    th 418
+                                    th 334
+                                    th 2.04%
+                                    th 79.86%
+                                    th 5.2분
+                            tbody
+                                tr.title-row
+                                    th &nbsp;
+                                    th 벤치마크 대상
+                                    th 통행객
+                                    th 방문객
+                                    th 체류객
+                                    th 방문율
+                                    th 체류율
+                                    th 체류시간
+                                tr.selected-row
+                                    td
+                                        i.material-icons done
+                                    td.left WalkInsight Demo
+                                    td 2.08만
+                                    td 340
+                                    td 247
+                                    td 1.64%
+                                    td 72.53%
+                                    td 5.3분
+                                tr
+                                    td
+                                    td.left WalkInsight Demo
+                                    td 2.08만
+                                    td 340
+                                    td 247
+                                    td 1.64%
+                                    td 72.53%
+                                    td 5.3분
+                                tr
+                                    td
+                                    td.left WalkInsight Demo
+                                    td 2.08만
+                                    td 340
+                                    td 247
+                                    td 1.64%
+                                    td 72.53%
+                                    td 5.3분
+                                tr
+                                    td
+                                    td.left WalkInsight Demo
+                                    td 2.08만
+                                    td 340
+                                    td 247
+                                    td 1.64%
+                                    td 72.53%
+                                    td 5.3분
 
-              .bottom-toggler-btn2(data-opened="true")
-                span 접기
-                i.material-icons arrow_drop_up
-        .ib-card
-          .ib-card-header.dark-header
-              span.title
-                  span.title-caption
-                      i.material-icons(title="선택한 기간의 각 지표별 트렌드를 파악 할 수 있습니다") help
-                      | 도움말
-              .ib-card-actions
-                  .description.left(title="선택한 기간의 데이터를 일 / 주 / 월별로 비교할 수 있습니다")
-                    i.material-icons.bold help
-                  ul#selectable
-                      li.selectee 일
-                      li.selectee 주
-                      li.selectee 월
-          .ib-card-header
-              span.title 통행객
-                  span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
-              .ib-card-actions
-                  .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
-                    i.material-icons.bold help
-                  ul#selectable
-                      li.selectee 절대치
-                      li.selectee 격차
-                  .download
-                        i.material-icons cloud_download
-                        span 이미지 다운로드
-                  .bottom-toggler-btn2.toggler(data-opened="true")
-                    span 접기
-                    i.material-icons arrow_drop_up
-          hr.ib-card-hr
-          .ib-card-header
-              span.title 방문객
-                  span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
-              .ib-card-actions
-                  .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
-                    i.material-icons.bold help
-                  ul#selectable
-                      li.selectee 절대치
-                      li.selectee 격차
-                  .download
-                        i.material-icons cloud_download
-                        span 이미지 다운로드
-                  .bottom-toggler-btn2.toggler(data-opened="true")
-                    span 접기
-                    i.material-icons arrow_drop_up
-          hr.ib-card-hr
-          .ib-card-header
-              span.title 체류객
-                  span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
-              .ib-card-actions
-                  .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
-                    i.material-icons.bold help
-                  ul#selectable
-                      li.selectee 절대치
-                      li.selectee 격차
-                  .download
-                        i.material-icons cloud_download
-                        span 이미지 다운로드
-                  .bottom-toggler-btn2.toggler(data-opened="true")
-                    span 접기
-                    i.material-icons arrow_drop_up
-          hr.ib-card-hr
-          .ib-card-header
-              span.title 방문율
-                  span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
-              .ib-card-actions
-                  .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
-                    i.material-icons.bold help
-                  ul#selectable
-                      li.selectee 절대치
-                      li.selectee 격차
-                  .download
-                        i.material-icons cloud_download
-                        span 이미지 다운로드
-                  .bottom-toggler-btn2.toggler(data-opened="true")
-                    span 접기
-                    i.material-icons arrow_drop_up
-          hr.ib-card-hr
-          .ib-card-header
-              span.title 체류율
-                  span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
-              .ib-card-actions
-                  .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
-                    i.material-icons.bold help
-                  ul#selectable
-                      li.selectee 절대치
-                      li.selectee 격차
-                  .download
-                        i.material-icons cloud_download
-                        span 이미지 다운로드
-                  .bottom-toggler-btn2.toggler(data-opened="true")
-                    span 접기
-                    i.material-icons arrow_drop_up
-          hr.ib-card-hr
-          .ib-card-header
-              span.title 체류시간
-                  span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
-              .ib-card-actions
-                  .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
-                    i.material-icons.bold help
-                  ul#selectable
-                      li.selectee 절대치
-                      li.selectee 격차
-                  .download
-                        i.material-icons cloud_download
-                        span 이미지 다운로드
-                  .bottom-toggler-btn2.toggler(data-opened="true")
-                    span 접기
-                    i.material-icons arrow_drop_up
-          hr.ib-card-hr
+                    hr.ib-card-hr
+                .ib-card
+                    .ib-card-header
+                        span.title
+                            | WalkInsights Demo Shop vs WalkInsights Demo
+                            .ib-card-caption
+                                .description.left(title="매장의 지표별 수준을 확인 할 수 있습니다.")
+                                    i.material-icons.bold help
+                                    span 도움말
+                        .ib-card-actions
+                            .description.left(title="<b>매우나쁨</b> (백분위 ~20%)<br/><b>나쁨</b> (백분위 20~40%)<br/><b>보통</b> (백분위 40~60%)<br/><b>좋음</b>(백분위 60~80%)<br/><b>매우좋음</b>(백분위 80~100%)")
+                                i.material-icons.bold help
+                            .tags
+                                .tag
+                                    div.mark.very-bad
+                                    span.text 매우나쁨
+                                .tag
+                                    div.mark.bad
+                                    span.text 나쁨
+                                .tag
+                                    div.mark.normal
+                                    span.text 보통
+                                .tag
+                                    div.mark.good
+                                    span.text 좋음
+                                .tag
+                                    div.mark.very-good
+                                    span.text 매우좋음
+
+                            .bottom-toggler-btn2(data-blind="true" data-opened="true" data-target="#body1")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body1
+                        .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
+                        .time-line-chart(data-avg="2.03%" data-value="1.64%" data-percentage="64")
+                        .time-line-chart(data-avg="340" data-value="418" data-percentage="55")
+                        .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
+                        .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
+                        .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
+                .ib-card
+                    .ib-card-header.dark-header
+                        span.title
+                            span.title-caption
+                                i.material-icons(title="선택한 기간의 각 지표별 트렌드를 파악 할 수 있습니다") help
+                                | 도움말
+                        .ib-card-actions
+                            .description.left(title="선택한 기간의 데이터를 일 / 주 / 월별로 비교할 수 있습니다")
+                                i.material-icons.bold help
+                            ul#selectable
+                                li.selectee 일
+                                li.selectee 주
+                                li.selectee 월
+                    .ib-card-header
+                        span.title 통행객
+                            span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
+                        .ib-card-actions
+                            .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
+                                i.material-icons.bold help
+                            ul#selectable
+                                li.selectee 절대치
+                                li.selectee 격차
+                            .download
+                                i.material-icons cloud_download
+                                span 이미지 다운로드
+                            .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body3")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body3
+                        .chart-wrapper
+                            canvas#chart1
+                    hr.ib-card-hr
+                    .ib-card-header
+                        span.title 방문객
+                            span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
+                        .ib-card-actions
+                            .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
+                                i.material-icons.bold help
+                            ul#selectable
+                                li.selectee 절대치
+                                li.selectee 격차
+                            .download
+                                i.material-icons cloud_download
+                                span 이미지 다운로드
+                            .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body4")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body4
+                        .chart-wrapper
+                            canvas#chart2
+                    hr.ib-card-hr
+                    .ib-card-header
+                        span.title 체류객
+                            span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
+                        .ib-card-actions
+                            .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
+                                i.material-icons.bold help
+                            ul#selectable
+                                li.selectee 절대치
+                                li.selectee 격차
+                            .download
+                                i.material-icons cloud_download
+                                span 이미지 다운로드
+                            .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body5")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body5
+                        .chart-wrapper
+                            canvas#chart3
+                    hr.ib-card-hr
+                    .ib-card-header
+                        span.title 방문율
+                            span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
+                        .ib-card-actions
+                            .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
+                                i.material-icons.bold help
+                            ul#selectable
+                                li.selectee 절대치
+                                li.selectee 격차
+                            .download
+                                i.material-icons cloud_download
+                                span 이미지 다운로드
+                            .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body6")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body6
+                        .chart-wrapper
+                            canvas#chart4
+                    hr.ib-card-hr
+                    .ib-card-header
+                        span.title 체류율
+                            span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
+                        .ib-card-actions
+                            .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
+                                i.material-icons.bold help
+                            ul#selectable
+                                li.selectee 절대치
+                                li.selectee 격차
+                            .download
+                                i.material-icons cloud_download
+                                span 이미지 다운로드
+                            .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body7")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body7
+                        .chart-wrapper
+                            canvas#chart5
+                    hr.ib-card-hr
+                    .ib-card-header
+                        span.title 체류시간
+                            span.subtitle WalkInsights Demo Shop vs WalkInsights Demo
+                        .ib-card-actions
+                            .description.left(title="비교방법을 선택할 수 있습니다.<br/>절대치 수치를 직접 비교합니다.<br/>격차 벤치마크 데이터와의 차이를 비교합니다.")
+                                i.material-icons.bold help
+                            ul#selectable
+                                li.selectee 절대치
+                                li.selectee 격차
+                            .download
+                                i.material-icons cloud_download
+                                span 이미지 다운로드
+                            .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body8")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body8
+                        .chart-wrapper
+                            canvas#chart6
+                    hr.ib-card-hr
 
 
 
@@ -202,47 +288,30 @@ html(lang="ko")
 
 
 
-    include ../../components/footer
-    script(src="/assets/externals/jquery-date-range-picker.js")
-    script.
-      $( function() {
-        $( "#period" ).daterangepicker();
-      } );
-      $( function() {
-        $( "#store-type" ).selectmenu();
-      } );
-      $( function() {
-        $( "#visit-type" ).selectmenu();
-      } );
-      $(function(){
-          // 카드 접기/펼치기
-          $('.bottom-toggler-btn').on('click', function () {
-              var isOpened = $(this).data('opened')
-              $(this).data('opened', !isOpened)
-              $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
-              $(this).find('span').text(isOpened ? "펼치기" : "접기")
-              $("#ib-card-body").toggle('blind');
-          })
-          // 카드 접기/펼치기
-          $('.bottom-toggler-btn2').on('click', function () {
-              var isOpened = $(this).data('opened')
-              $(this).data('opened', !isOpened)
-              $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
-              $(this).find('span').text(isOpened ? "펼치기" : "접기")
-              $(".ib-card-body-2").toggle('blind');
-          })
-      })
-        $( function() {
-            var handle = $( "#custom-handle" );
-            $( "#slider" ).slider({
-            create: function() {
-                handle.text( $( this ).slider( "value" ) );
-            },
-            slide: function( event, ui ) {
-                handle.text( ui.value );
-            }
+        include ../../components/footer
+        script(src="/assets/externals/jquery-date-range-picker.js")
+        script(src="./benchmark.js")
+        script.
+            $(function () {
+                $("#period").daterangepicker();
             });
-        } );
-        $( function() {
-            $( "#selectable" ).selectable();
-        } );
+            $(function () {
+                $("#store-type").selectmenu();
+            });
+            $(function () {
+                $("#visit-type").selectmenu();
+            });
+            $(function () {
+                var handle = $("#custom-handle");
+                $("#slider").slider({
+                    create: function () {
+                        handle.text($(this).slider("value"));
+                    },
+                    slide: function (event, ui) {
+                        handle.text(ui.value);
+                    }
+                });
+            });
+            $(function () {
+                $("#selectable").selectable();
+            });

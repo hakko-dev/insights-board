@@ -140,18 +140,4 @@ $(function(){
 		fillColour: '#d0d7dd',
 		disableTooltips: true
 	});
-
-	$('.time-line-chart').each(function(index, chart){
-		var _this = $(chart)
-		console.log(_this)
-		var avg = _this.data('avg')
-		var value = _this.data('value')
-		var percentage = _this.data("percentage")
-
-		_this.append('<div class="line"/>')
-		_this.append('<div class="line"/>')
-		_this.append('<div class="line"/>')
-		_this.append('<div class="line"/>')
-		_this.append('<div class="bullet"/>')
-	})
 })

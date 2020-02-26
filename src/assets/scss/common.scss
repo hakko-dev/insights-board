@@ -54,7 +54,6 @@ body{
   >.line{
     width: calc(25% - 5px);
     height: 3px;
-    background: red;
     margin-right: 5px;
     &:last-child{
       margin-right: 0;
@@ -71,7 +70,79 @@ body{
     width: 80px;
     height: 25px;
     border-radius: 12.5px;
-    border: 2px solid rgb(255, 223, 164);
     background-color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  >.average{
+    left: 50%;
+    margin-left: -40px;
+    position: absolute;
+    top: 28px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    color: rgb(81, 99, 120);
+    vertical-align: middle;
+    width: 80px;
+    height: 25px;
+    text-align: center;
+  }
+  &.very-bad {
+    >.line{
+      background: rgb(255, 125, 165);
+    }
+    >.bullet{
+      border: 2px solid rgb(255, 125, 165);
+      &:hover{
+        background: rgb(255, 125, 165);
+      }
+    }
+  }
+  &.bad {
+    >.line{
+      background: rgb(255, 175, 200);
+    }
+    >.bullet{
+      border: 2px solid rgb(255, 175, 200);
+      &:hover{
+        background: rgb(255, 175, 200);
+      }
+    }
+  }
+  &.normal {
+    >.line{
+      background: rgb(255, 223, 164);
+    }
+    >.bullet{
+      border: 2px solid rgb(255, 223, 164);
+      &:hover{
+        background: rgb(255, 223, 164);
+      }
+    }
+  }
+  &.good {
+    >.line{
+      background: rgb(161, 213, 37);
+    }
+    >.bullet{
+      border: 2px solid rgb(161, 213, 37);
+      &:hover{
+        background: rgb(161, 213, 37);
+      }
+    }
+  }
+  &.very-good {
+    >.line{
+      background: rgb(0, 214, 61);
+    }
+    >.bullet{
+      border: 2px solid rgb(0, 214, 61);
+      &:hover{
+        background: rgb(0, 214, 61);
+      }
+    }
   }
 }
