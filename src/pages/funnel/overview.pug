@@ -123,6 +123,9 @@ html(lang="ko")
               .bottom-toggler-btn2(data-opened="true")
                 span 접기
                 i.material-icons arrow_drop_up
+          .ib-card-body
+            .time-line-chart(data-avg="2.08" data-value="2.06" data-percentage="48")
+
         .ib-card
             .ib-card-header
                 span.title 전체 퍼널 현황
@@ -130,17 +133,26 @@ html(lang="ko")
                     .download
                         i.material-icons cloud_download
                         span 이미지 다운로드
+            .ib-card-body
+                #trend-wrapper
+                    canvas#trend
         .ib-card
             .ib-card-header
                 span.title 요약
-                .ib-card-actions
-                    .download
+                .ib-card-actions.download
+
                         i.material-icons cloud_download
                         span 이미지 다운로드
+            .ib-card-body
+                span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7")
 
 
     include ../../components/footer
     script(src="/assets/externals/jquery-date-range-picker.js")
+    script(src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels")
+    script(src="/assets/externals/jquery.sparkline.min.js")
+    script(src="./overview.js")
+
     script.
       $( function() {
         $( "#period" ).daterangepicker();
@@ -180,3 +192,4 @@ html(lang="ko")
           }
         });
       } );
+

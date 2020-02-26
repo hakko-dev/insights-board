@@ -45,3 +45,33 @@ body{
     left: 0;
   }
 }
+
+.time-line-chart{
+  display: flex;
+  position: relative;
+  height: 25px;
+  align-items: center;
+  >.line{
+    width: calc(25% - 5px);
+    height: 3px;
+    background: red;
+    margin-right: 5px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  >.bullet{
+    left: 50%;
+    margin-left: -40px;
+    position: absolute;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 25px;
+    vertical-align: middle;
+    width: 80px;
+    height: 25px;
+    border-radius: 12.5px;
+    border: 2px solid rgb(255, 223, 164);
+    background-color: #fff;
+  }
+}
