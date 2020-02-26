@@ -146,3 +146,15 @@
     direction: ltr;
   }
 }
+
+.brand-overview-card-row {
+  display: flex;
+  justify-content: space-between;
+  .card-left {
+    flex: 5;
+    margin-right: 15px;
+  }
+  .card-right {
+    flex: 7;
+  }
+}
