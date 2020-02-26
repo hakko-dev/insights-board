@@ -147,14 +147,53 @@
   }
 }
 
-.brand-overview-card-row {
-  display: flex;
-  justify-content: space-between;
-  .card-left {
-    flex: 5;
-    margin-right: 15px;
+canvas#trend {
+  //width: 100% !important;
+  max-height: 400px !important;
+}
+#trend-wrapper {
+  height: 400px;
+}
+
+#selectable {
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+#selectable .ui-selected {
+  background-color: #e8ebed;
+  color: #516378;
+}
+
+.button-caption {
+  margin-right: 10px;
+}
+
+.selectee {
+  display: inline-block;
+  border-right: 0;
+  line-height: 26px;
+  width: 74px;
+  height: 32px;
+  border: 1px solid rgba(81, 99, 120, 0.2);
+  color: #98a7b3;
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+  background-color: #fff;
+  vertical-align: baseline;
+  padding-top: 2px;
+  &:hover {
+    background-color: #e8ebed;
+    color: #516378;
   }
-  .card-right {
-    flex: 7;
+  &:nth-child(1) {
+    border-radius: 3px 0 0 3px;
+  }
+  &:nth-child(2) {
+    border-radius: 0;
+  }
+  &:nth-child(3) {
+    border-radius: 0 3px 3px 0;
   }
 }
