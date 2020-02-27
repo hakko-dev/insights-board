@@ -1,10 +1,16 @@
-#paper {
+
+@import "/assets/scss/responsive.scss";
+
+#paper{
   background-color: #fff;
   page-break-after: always;
   margin: 0;
 }
 #print-content {
   padding: 10mm !important;
+  @include mobile{
+    padding: 10px 3px !important;
+  }
   width: 100%;
   height: 100%;
 }
@@ -16,7 +22,10 @@
 .header {
   display: flex;
   justify-content: space-between;
-  .rect {
+  @include mobile{
+    flex-direction: column;
+  }
+  .rect{
     width: 50%;
     height: 6px;
     background: #3a3f51;
@@ -41,9 +50,15 @@
   display: flex;
   margin-top: 20px;
   flex-wrap: wrap;
-
-  .p-card {
+  @include mobile{
+    flex-direction: column;
+  }
+  .p-card{
     width: 25%;
+    @include mobile{
+      width: 100%;
+      margin-bottom: 10px;
+    }
     padding: 10px 0px;
     box-shadow: rgba(81, 99, 120, 0.1) 0px 1px 2px 0px;
     border-radius: 3px;
@@ -96,9 +111,16 @@ div.desc {
   margin-top: 20px;
   justify-content: space-between;
   flex-wrap: wrap;
+  @include mobile{
+    flex-direction: column;
+  }
 }
 .c-card {
   width: calc(50% - 10px);
+  @include mobile{
+    width: 100%;
+    margin-bottom: 10px;
+  }
   padding: 10px 15px;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(81, 99, 120, 0.1) 0px 1px 2px 0px;
@@ -126,8 +148,15 @@ div.desc {
 
 .table-wrapper {
   display: flex;
-  table {
+  @include mobile{
+    flex-direction: column;
+  }
+  table{
     width: 50%;
+    @include mobile{
+      width: 100%;
+      margin-bottom: 10px;
+    }
     margin-right: 25px;
     &:last-child {
       margin-right: 0;
@@ -225,5 +254,12 @@ div.desc {
     cursor: not-allowed;
     border-spacing: 0px;
   }
+}
+
+@include mobile{
+  button.submit-button{
+    display: none;
+  }
   margin-right: 12px;
 }
+
