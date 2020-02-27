@@ -1,16 +1,18 @@
-@import "config";
-@import "sidebar";
-@import "navbar";
-@import "card";
-@import "button";
-@import "table";
-@import "span";
+@import 'config';
+@import 'sidebar';
+@import 'navbar';
+@import 'card';
+@import 'button';
+@import 'table';
+@import 'span';
 @import 'form';
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
-@import "responsive";
-body{
+@import 'responsive';
+body {
   background-color: rgba(81, 99, 120, 0.1);
-  font-family: 'Noto Sans KR', Avenir, "Avenir Next", Helvetica, Arial, "Apple SD Gothic Neo", "Nanum Barun Gothic", "Malgun Gothic", 맑은고딕, 돋움, Dotum, "Noto Sans Japanese", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", メイリオ, sans-serif;
+  font-family: 'Noto Sans KR', Avenir, 'Avenir Next', Helvetica, Arial, 'Apple SD Gothic Neo',
+    'Nanum Barun Gothic', 'Malgun Gothic', 맑은고딕, 돋움, Dotum, 'Noto Sans Japanese',
+    'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', メイリオ, sans-serif;
 }
 
 #container {
@@ -22,7 +24,7 @@ body{
   #content {
     max-width: 1600px;
     min-width: calc(100vw - 296px);
-    @include mobile{
+    @include mobile {
       min-width: calc(100vw - 40px);
     }
     position: absolute;
@@ -32,7 +34,7 @@ body{
     min-height: 100%;
     padding: 20px 20px 40px;
     margin: auto;
-    @include desktop{
+    @include desktop {
       left: 256px;
     }
   }
@@ -52,20 +54,20 @@ body{
   }
 }
 
-.time-line-chart{
+.time-line-chart {
   display: flex;
   position: relative;
   height: 25px;
   align-items: center;
-  >.line{
+  > .line {
     width: calc(25% - 5px);
     height: 3px;
     margin-right: 5px;
-    &:last-child{
+    &:last-child {
       margin-right: 0;
     }
   }
-  >.bullet{
+  > .bullet {
     left: 50%;
     margin-left: -40px;
     position: absolute;
@@ -82,7 +84,7 @@ body{
     align-items: center;
     justify-content: center;
   }
-  >.average{
+  > .average {
     left: 50%;
     margin-left: -40px;
     position: absolute;
@@ -97,128 +99,126 @@ body{
     text-align: center;
   }
   &.very-bad {
-    >.line{
+    > .line {
       background: rgb(255, 125, 165);
     }
-    >.bullet{
+    > .bullet {
       border: 2px solid rgb(255, 125, 165);
-      &:hover{
+      &:hover {
         background: rgb(255, 125, 165);
       }
     }
   }
   &.bad {
-    >.line{
+    > .line {
       background: rgb(255, 175, 200);
     }
-    >.bullet{
+    > .bullet {
       border: 2px solid rgb(255, 175, 200);
-      &:hover{
+      &:hover {
         background: rgb(255, 175, 200);
       }
     }
   }
   &.normal {
-    >.line{
+    > .line {
       background: rgb(255, 223, 164);
     }
-    >.bullet{
+    > .bullet {
       border: 2px solid rgb(255, 223, 164);
-      &:hover{
+      &:hover {
         background: rgb(255, 223, 164);
       }
     }
   }
   &.good {
-    >.line{
+    > .line {
       background: rgb(161, 213, 37);
     }
-    >.bullet{
+    > .bullet {
       border: 2px solid rgb(161, 213, 37);
-      &:hover{
+      &:hover {
         background: rgb(161, 213, 37);
       }
     }
   }
   &.very-good {
-    >.line{
+    > .line {
       background: rgb(0, 214, 61);
     }
-    >.bullet{
+    > .bullet {
       border: 2px solid rgb(0, 214, 61);
-      &:hover{
+      &:hover {
         background: rgb(0, 214, 61);
       }
     }
   }
 }
 
-@include mobile{
-  .ib-card-header{
+@include mobile {
+  .ib-card-header {
     flex-direction: column !important;
-    align-items: flex-start  !important;
-    span.title{
+    align-items: flex-start !important;
+    span.title {
       white-space: pre-wrap !important;
-      .ib-card-caption{
+      .ib-card-caption {
         display: none;
       }
     }
-    .ib-card-actions:not(.no-global){
-      .ib-card-caption{
+    .ib-card-actions:not(.no-global) {
+      .ib-card-caption {
         width: 100%;
         margin-right: 0 !important;
         justify-content: flex-start !important;
       }
       width: 100%;
       flex-direction: column !important;
-      align-items: flex-end  !important;
-      .ui-selectable{
-        margin:0 !important;
-        padding:0 !important;
+      align-items: flex-end !important;
+      .ui-selectable {
+        margin: 0 !important;
+        padding: 0 !important;
         margin-bottom: 10px !important;
       }
     }
   }
 
-
-  .excel-page{
-    .table-scroll-wrapper{
+  .excel-page {
+    .table-scroll-wrapper {
       overflow: scroll;
       width: 100%;
-      table{
+      table {
         min-width: 600px;
       }
     }
   }
 
-  .tags{
+  .tags {
     flex-wrap: wrap;
-    .tag{
+    .tag {
       margin-bottom: 10px;
     }
   }
 }
 
-
-.time-lines{
-  flex:1;
+.time-lines {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
-  @include mobile{
+  @include mobile {
     flex-direction: column;
   }
-  .time-line{
-    @include mobile{
-      span{
+  .time-line {
+    @include mobile {
+      span {
         font-weight: 600;
       }
       width: 100% !important;
       display: flex;
       align-items: center;
       flex-direction: column;
-      >.time-line-chart{
+      > .time-line-chart {
         width: 100%;
-        .average{
+        .average {
           top: 40px;
         }
       }
