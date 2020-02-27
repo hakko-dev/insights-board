@@ -1,6 +1,7 @@
 @import "responsive.scss";
 
 #sidebar{
+  z-index: 999;
   &.collapse.show,
   &.collapse.show + .col {
     transition: .18s ease;
