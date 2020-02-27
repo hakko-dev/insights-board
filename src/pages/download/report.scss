@@ -254,12 +254,12 @@ div.desc {
     cursor: not-allowed;
     border-spacing: 0px;
   }
+  margin-right: 12px;
 }
 
 @include mobile{
   button.submit-button{
     display: none;
   }
-  margin-right: 12px;
 }
 
