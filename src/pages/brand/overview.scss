@@ -1,11 +1,10 @@
-@import "/assets/scss/responsive.scss";
+@import '/assets/scss/responsive.scss';
 
 .radio-label {
   margin-right: 20px;
   font-size: 14px;
   color: #516378;
 }
-
 
 #period {
   width: 100%;
@@ -160,7 +159,7 @@
   .card-right {
     flex: 7;
   }
-  @include mobile{
+  @include mobile {
     flex-direction: column;
     .card-left {
       flex: 5;
@@ -267,5 +266,16 @@ table.area-funnel {
   }
   tr:hover {
     background-color: rgba(81, 99, 120, 0.1);
+  }
+}
+.scroll-x {
+  @include mobile {
+    overflow-x: scroll;
+  }
+}
+
+table {
+  @include mobile {
+    min-width: 500px;
   }
 }

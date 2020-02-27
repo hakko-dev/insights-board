@@ -460,3 +460,21 @@ table.benchmark-table {
     }
   }
 }
+
+#filter-title {
+  @include mobile {
+    display: flex !important;
+    align-items: center;
+  }
+}
+.scroll-x {
+  @include mobile {
+    overflow-x: scroll;
+  }
+}
+
+table {
+  @include mobile {
+    min-width: 600px;
+  }
+}
