@@ -1,3 +1,4 @@
+@import '/assets/scss/responsive.scss';
 .radio-label {
   margin-right: 20px;
   font-size: 14px;
@@ -292,11 +293,11 @@ canvas#trend {
   align-self: center;
 }
 
-.chart-wrapper{
+.chart-wrapper {
   height: 400px;
 }
 
-table.benchmark-table{
+table.benchmark-table {
   border-top: none;
   width: 100%;
   font-size: 14px;
@@ -304,13 +305,13 @@ table.benchmark-table{
   color: #516378;
   border-spacing: 0;
 
-  tr.selected-row{
+  tr.selected-row {
     font-weight: 700;
     border-collapse: collapse;
-    -webkit-transition: all .18s ease-in-out;
-    transition: all .18s ease-in-out;
-    >th:first-child{
-      i{
+    -webkit-transition: all 0.18s ease-in-out;
+    transition: all 0.18s ease-in-out;
+    > th:first-child {
+      i {
         vertical-align: middle;
         color: #00d63d;
         width: 14px;
@@ -319,24 +320,25 @@ table.benchmark-table{
       -webkit-box-shadow: inset 7px 0 0 0 #00d63d;
       box-shadow: inset 7px 0 0 0 #00d63d;
     }
-    th{
+    th {
       font-weight: 700;
     }
   }
-  thead{
-    th{
+  thead {
+    th {
       padding: 2px 8px;
       height: 50px;
       border-collapse: collapse;
       font-size: 14px;
     }
   }
-  th.left, td.left{
+  th.left,
+  td.left {
     text-align: left;
   }
-  tr.title-row{
-    th{
-      background-color: rgba(81,99,120,.1);
+  tr.title-row {
+    th {
+      background-color: rgba(81, 99, 120, 0.1);
       height: 36px;
       padding: 2px 8px;
       font-size: 12px;
@@ -344,34 +346,34 @@ table.benchmark-table{
       text-align: center;
     }
   }
-  tbody{
-    tr{
-      &:not(.title-row):hover{
-        background-color: rgba(81,99,120,.1);
+  tbody {
+    tr {
+      &:not(.title-row):hover {
+        background-color: rgba(81, 99, 120, 0.1);
         cursor: pointer;
       }
       border-left: 1px solid #eee;
       border-right: 1px solid #eee;
-      td{
+      td {
         padding: 2px 8px;
         height: 50px;
         font-size: 14px;
         font-weight: initial;
         border-bottom: 1px solid #eee;
-        &:last-child{
+        &:last-child {
           border-bottom: none;
         }
       }
-      &.selected-row{
+      &.selected-row {
         border-left: none;
         //border-right: none;
         -webkit-box-shadow: inset 7px 0 0 0 #00d63d;
         box-shadow: inset 7px 0 0 0 #00d63d;
-        td{
+        td {
           font-weight: 600;
         }
-        >td:first-child{
-          i{
+        > td:first-child {
+          i {
             vertical-align: middle;
             color: #00d63d;
             width: 14px;
@@ -381,30 +383,80 @@ table.benchmark-table{
       }
     }
   }
-
 }
-.ib-card-body.no-padding{
+.ib-card-body.no-padding {
   padding: 0;
 }
-#body1{
+#body1 {
   display: flex;
   flex-wrap: wrap;
   padding-top: 40px;
 }
-.time-line{
+.time-line {
   width: 50%;
   display: flex;
-  span{
+  span {
     width: 120px;
     flex-grow: 0;
     text-align: center;
-    font-size:14px;
-    font-weight:400;
-    color:rgb(81, 99, 120);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(81, 99, 120);
   }
-  .time-line-chart{
+  .time-line-chart {
     flex-grow: 1;
     flex-shrink: 0;
   }
   height: 70px;
+}
+
+.title {
+  @include mobile {
+    display: block !important;
+  }
+}
+
+.subtitle {
+  @include mobile {
+    display: block !important;
+    margin: 0;
+    white-space: normal;
+    word-break: break-all;
+  }
+}
+
+.ib-card-actions {
+  &.detail-card {
+    @include mobile {
+      flex-direction: row !important;
+    }
+    > * {
+      &:nth-child(1) {
+        @include mobile {
+          align-self: center !important;
+          padding-bottom: 10px;
+          display: none;
+        }
+      }
+      &:nth-child(2) {
+        @include mobile {
+          padding-top: 10px;
+          align-self: center !important;
+          padding-bottom: 10px;
+        }
+      }
+      &:nth-child(3) {
+        @include mobile {
+          align-self: center !important;
+          padding-bottom: 10px;
+        }
+      }
+      &:nth-child(4) {
+        @include mobile {
+          align-self: flex-end !important;
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
 }
