@@ -77,12 +77,11 @@ html(lang="ko")
                     label.radio-label Wi-Fi
                     input(type='radio', value='sum', name='revise')
                     label.radio-label 적외선
-                .form-column
+                .form-column.range-column
                   label
                     | 최소 가용성
                     i.material-icons(title="가용성: 영업시간 동안 센서가 가동된 시간의 비율입니다 (0 이상 1 이하, 기본값 0.7).<br/>설정된 가용성 이상 운영된 날짜의 퍼널 데이터만을 가져와서 계산합니다.") help
-                  #slider
-                    #custom-handle.ui-slider-handle
+                  #range.range-slider
 
         .ib-card
           .ib-card-header
@@ -147,16 +146,17 @@ html(lang="ko")
               $(".ib-card-body-2").toggle('blind');
           })
       })
-      $( function() {
-        var handle = $( "#custom-handle" );
-        $( "#slider" ).slider({
-          create: function() {
-            handle.text( $( this ).slider( "value" ) );
-          },
-          slide: function( event, ui ) {
-            handle.text( ui.value );
-          }
-        });
-
-
-      } );
+            var range = document.getElementById('range');
+            noUiSlider.create(range, {
+              start: 0.5,
+              connect: [true, false],
+              range: {
+                  'min': 0,
+                  'max': 1
+              },
+              pips: {
+                mode: 'values',
+                values: [0, 1],
+                density: 3
+              }
+            });
