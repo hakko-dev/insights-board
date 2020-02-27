@@ -1,4 +1,17 @@
+function initLayout(){
+	if(window.screen.width < 1024){
+		$('#sidebar').removeClass('show')
+		$('#sidebar').addClass('collapse')
+	}else{
+		$('#sidebar').addClass('collapse show')
+	}
+}
 $( function() {
+	initLayout()
+	window.onresize = function(event) {
+		initLayout()
+	};
+
 	$('.time-line-chart').each(function(index, chart){
 		var _this = $(chart)
 		console.log(_this)

@@ -21,10 +21,10 @@ html(lang="ko")
 														"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]")
                   i.material-icons.bold info
                   span 모든 퍼널은 선택한 보정치가 반영되어있습니다
-              .bottom-toggler-btn(data-opened="true")
+              .bottom-toggler-btn(data-blind="true" data-opened="true" data-target="#body1")
                 span 접기
                 i.material-icons arrow_drop_up
-          .ib-card-body
+          .ib-card-body#body1
             form
               .form-row
                 .form-column
@@ -63,11 +63,11 @@ html(lang="ko")
               i.material-icons.bold tune
               | 고급 옵션
             .ib-card-actions
-              .bottom-toggler-btn2(data-opened="true")
+              .bottom-toggler-btn2(data-blind="true" data-opened="true" data-target="#body2")
                 span 접기
                 i.material-icons arrow_drop_up
 
-          .ib-card-body-2
+          .ib-card-body-2#body2
             form
               .form-row
                 .form-column
@@ -232,22 +232,7 @@ html(lang="ko")
         $( "#visit-type" ).selectmenu();
       } );
       $(function(){
-          // 카드 접기/펼치기
-          $('.bottom-toggler-btn').on('click', function () {
-              var isOpened = $(this).data('opened')
-              $(this).data('opened', !isOpened)
-              $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
-              $(this).find('span').text(isOpened ? "펼치기" : "접기")
-              $(".ib-card-body").toggle('blind');
-          })
-          // 카드 접기/펼치기
-          $('.bottom-toggler-btn2').on('click', function () {
-              var isOpened = $(this).data('opened')
-              $(this).data('opened', !isOpened)
-              $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
-              $(this).find('span').text(isOpened ? "펼치기" : "접기")
-              $(".ib-card-body-2").toggle('blind');
-          })
+
       })
       $( function() {
         var handle = $( "#custom-handle" );

@@ -1,3 +1,5 @@
+@import "responsive.scss";
+
 #navbar{
   padding: 0;
   position: fixed;
@@ -43,6 +45,9 @@
     outline: none;
   }
   .navbar-content{
+    @include mobile{
+      display: none;
+    }
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
