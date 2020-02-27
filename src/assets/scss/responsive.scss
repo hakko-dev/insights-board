@@ -1,0 +1,18 @@
+@import "./_media.scss";
+
+$breakpoints: (
+        min: 360px,
+        max: 1024px
+);
+
+@mixin mobile {
+  @include media("<max") {
+    @content;
+  }
+}
+@mixin desktop {
+  @include media(">=max") {
+    @content;
+  }
+}
+
