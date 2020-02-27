@@ -91,7 +91,32 @@ html(lang="ko")
               .download
                 i.material-icons cloud_download
                 span 엑셀 다운로드
-          hr.ib-card-hr
+          .ib-card-body.no-padding
+            table.area-funnel
+              thead
+                tr
+                  th &nbsp;
+                  th 영역
+                  th 방문객
+                  th 체류시간
+              tbody
+                tr
+                  td 1
+                  td enter
+                  td.percent(data-percentage="100" data-value="64")
+                  td 5.0분
+                tr
+                  td 2
+                  td inner
+                  td.percent(data-percentage="50" data-value="32")
+                  td 5.0분
+                tr
+                  td 3
+                  td 2F
+                  td.percent(data-percentage="25" data-value="16")
+                  td 5.0분
+
+
 
 
 
@@ -132,4 +157,16 @@ html(lang="ko")
             handle.text( ui.value );
           }
         });
+
+        $('.percent').each(function(index, item){
+          var item = $(item)
+          var percentage = item.data('percentage')
+          var value = item.data('value')
+          item.text(value)
+          if(percentage == 100){
+            item.css('background', 'linear-gradient(to left, rgba(0, 0, 0, 0) ' + 0 + '%, rgba(0, 214, 61, 0.2) ' + 0 + '%, rgba(0, 214, 61, 0.2) 100%)')
+          }else{
+            item.css('background', 'linear-gradient(to left, rgba(0, 0, 0, 0) ' + (100 - percentage) + '%, rgba(0, 214, 61, 0.2) ' + (100 - percentage+1) + '%, rgba(0, 214, 61, 0.2) 100%)')
+          }
+        })
       } );
