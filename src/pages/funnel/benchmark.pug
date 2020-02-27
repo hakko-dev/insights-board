@@ -10,9 +10,9 @@ html(lang="ko")
             #content
                 .ib-card
                     .ib-card-header
-                        span.title
+                        span.title#filter-title
                             i.material-icons.bold tune
-                            | 필터
+                            span 필터
                         .ib-card-actions
                             .ib-card-caption
                                 .description(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
@@ -54,7 +54,7 @@ html(lang="ko")
                             .download
                                 i.material-icons cloud_download
                                 span 이미지 다운로드
-                    .ib-card-body.no-padding
+                    .ib-card-body.no-padding.scroll-x
                         table.benchmark-table
                             thead
                                 tr.selected-row
