@@ -1,0 +1,117 @@
+doctype html
+html(lang="ko")
+    head
+        include ../../components/head
+        link(rel='stylesheet', href='./movement.scss')
+    body
+        include ../../components/navbar
+        #container
+            include ../../components/sidebar
+            #content
+                .ib-card
+                    .ib-card-header
+                        span.title
+                            i.material-icons.bold directions
+                            | 동선
+                        .ib-card-actions
+                            .bottom-toggler-btn(data-blind="true" data-opened="true" data-target="#body1")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#body1
+
+
+                .ib-card
+                    .ib-card-header
+                        span.title
+                            i.material-icons.bold tune
+                            | 필터
+                        .ib-card-actions
+                            .ib-card-caption
+                                .description(title="<b>Total 비율</b>: 맥어드레스 랜덤화 비율과 WI-FI 활성화 비율을 반영한 전체 보정치<br/>" +
+																"<b>Wi-Fi 활성화 비율</b>: Wi-Fi 활성화 디바이스 비율<br/>" +
+																"<b>랜덤화 비율</b>: 맥어드레스 랜덤화 디바이스 비율<br/>" +
+																"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]")
+                                    i.material-icons.bold info
+                                    span 모든 퍼널은 선택한 보정치가 반영되어있습니다
+                            .bottom-toggler-btn(data-blind="true" data-opened="true" data-target="#target3")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#target3
+                        form
+                            .form-row
+                                .form-column
+                                    label
+                                        | 기간
+                                        i.material-icons(title="분석 기간을 선택합니다") help
+                                    input#period(autocomplete="off")
+
+                                button.submit-button(type='submit', value='Submit', name='')
+                                    i.material-icons play_arrow
+                                    | 실행
+                .ib-card
+                    .ib-card-header
+                        span.title
+                            i.material-icons.bold directions_walk
+                            | 동선 분석
+                        .ib-card-actions
+                            .download
+                                i.material-icons cloud_download
+                                span 이미지 다운로드
+                    .ib-card-body
+                        #directions_walk-wrapper
+                            canvas#directions_walk
+                .ib-card
+                    .ib-card-header
+                        span.title
+                            i.material-icons.bold date_range
+                            | 일별 동선 분석
+                        .ib-card-actions
+                            .download
+                                i.material-icons cloud_download
+                                span 엑셀 다운로드
+                    .ib-card-body
+                        table.area-funnel
+                            thead
+                                tr
+                                    th 날짜
+                                    th 1F
+                                    th 1F → 2F
+                                    th 1F → 2F,3F
+                            tbody
+                                each val in [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+                                    tr
+                                        td 2018-10-30
+                                        td 885
+                                        td 245
+                                        td 435
+
+
+
+
+        include ../../components/footer
+        script(src="/assets/externals/jquery-date-range-picker.js")
+        script(src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels")
+        script(src="./movement.js")
+
+        script.
+            $(function () {
+                $("#period").daterangepicker();
+            });
+            $(function () {
+                $("#store-type").selectmenu();
+            });
+            $(function () {
+                $("#visit-type").selectmenu();
+            });
+            $(function () {
+                var handle = $("#custom-handle");
+                $("#slider").slider({
+                    create: function () {
+                        handle.text($(this).slider("value"));
+                    },
+                    slide: function (event, ui) {
+                        handle.text(ui.value);
+                    }
+                });
+            });
+

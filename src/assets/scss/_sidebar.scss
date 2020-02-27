@@ -30,6 +30,11 @@
   overflow-y: auto;
   background-color: #fafafa;
   >.side-bar-item{
+    a{
+      &:hover{
+        text-decoration: none;
+      }
+    }
     border-bottom: double rgba(81,99,120,.2);
     >.title-menu-item{
       height: 46px;

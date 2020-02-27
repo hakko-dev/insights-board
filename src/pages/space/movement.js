@@ -1,26 +1,25 @@
-var ctx = document.getElementById('trend').getContext('2d');
 
-var lineChartData = {
-	labels: ["통행객", "방문객", "체류객", "구매건수"],
+
+var data = {
+	labels: ["1F", "2F", "3F"],
 	datasets: [{
 		label: '통행객',
-		borderColor: ['rgb(0, 138, 255)', 'rgb(79, 91, 255)','rgb(39, 53, 140)', 'rgb(0, 234, 66)' ],
-		backgroundColor: ['rgb(0, 138, 255)', 'rgb(79, 91, 255)','rgb(39, 53, 140)', 'rgb(0, 234, 66)' ],
+		borderColor: ['rgb(0, 195, 255)', 'rgb(0, 195, 255)','rgb(0, 195, 255)' ],
+		backgroundColor: ['rgb(0, 195, 255)', 'rgb(0, 195, 255)','rgb(0, 195, 255)' ],
 		fill: false,
 		barThickness: 60,
 		data: [
-			randomScalingFactor(30000,40000),
-			randomScalingFactor(20000, 30000),
-			randomScalingFactor(10000,20000),
-			randomScalingFactor(2000, 5000),
+			randomScalingFactor(1000,1200),
+			randomScalingFactor(300, 1000),
+			randomScalingFactor(100,300)
 		],
 	}]
-};
+}
 Chart.plugins.unregister(ChartDataLabels)
-window.trendChart = new Chart(ctx, {
+window.chart = new Chart(document.getElementById('directions_walk').getContext('2d'), {
 	plugins: [ChartDataLabels],
 	type: "bar",
-	data: lineChartData,
+	data,
 	options: {
 		responsive: true,
 		maintainAspectRatio: false,
@@ -101,10 +100,10 @@ window.trendChart = new Chart(ctx, {
 				id: 'y-axis-1',
 				ticks: {
 					padding: 10,
-					suggestedMax: Math.max.apply(null, lineChartData.datasets[0].data)* 1.1,
+					suggestedMax: Math.max.apply(null, data.datasets[0].data)* 1.1,
 					callback: function(value){
-						if(value >= 10000){
-							return value / 10000 + "만"
+						if(value >= 1000){
+							return value / 1000 + "K"
 						}
 						return value
 					}
@@ -117,18 +116,3 @@ window.trendChart = new Chart(ctx, {
 		}
 	}
 });
-
-/**
- * day, week, month
- */
-window.setTrendTimeRange = function(range){
-	// 업데이트
-	// lineChartData.labels = [] // 맨 아래 일, 주, 월 항목들
-	lineChartData.datasets.forEach(function(dataset) {
-		dataset.data = dataset.data.map(function() {
-			return randomScalingFactor(); // 실제 값 넣기
-		});
-	});
-
-	window.trendChart.update();
-}
