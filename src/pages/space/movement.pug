@@ -8,16 +8,56 @@ html(lang="ko")
         #container
             include ../../components/sidebar
             #content
+                .ib-card.notice
+                    |
                 .ib-card
                     .ib-card-header
                         span.title
                             i.material-icons.bold directions
                             | 동선
+                            button#add-button + 추가
                         .ib-card-actions
                             .bottom-toggler-btn(data-blind="true" data-opened="true" data-target="#body1")
                                 span 접기
                                 i.material-icons arrow_drop_up
-                    .ib-card-body#body1
+                    #body1.ib-card-body.no-padding
+                        table.benchmark-table
+                            thead
+                                tr
+                                    th
+                                    th.left 이름
+                                    th 동선
+                                    th 수정
+
+                            tbody
+
+                                tr.selected-row
+                                    td
+                                        i.material-icons done
+                                    td.left Going Up
+                                    td 1F → 2F → 3F
+                                    td
+                                        button#edit-button
+                                            i.material-icons.bold edit
+                                            | 수정
+                                        button#delete-button
+                                            i.material-icons.bold delete
+                                            | 삭제
+
+                        ul.ib-pagination
+                            li.prev
+                                a
+                            li.active
+                                a 1
+                            li
+                                a 2
+                            li
+                                a 3
+                            li.next
+                                a
+
+
+
 
 
                 .ib-card
@@ -92,7 +132,6 @@ html(lang="ko")
         script(src="/assets/externals/jquery-date-range-picker.js")
         script(src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels")
         script(src="./movement.js")
-
         script.
             $(function () {
                 $("#period").daterangepicker();
@@ -102,19 +141,5 @@ html(lang="ko")
             });
             $(function () {
                 $("#visit-type").selectmenu();
-            });
-            var range = document.getElementById('range');
-            noUiSlider.create(range, {
-              start: 0.5,
-              connect: [true, false],
-              range: {
-                  'min': 0,
-                  'max': 1
-              },
-              pips: {
-                mode: 'values',
-                values: [0, 1],
-                density: 3
-              }
             });
 
