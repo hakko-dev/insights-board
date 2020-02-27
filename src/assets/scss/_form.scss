@@ -2,10 +2,12 @@ form {
   .form-row {
     display: flex;
     align-items: center;
+    width: 100%;
     .form-column {
       margin-bottom: 5px;
       margin-right: 40px;
       margin-top: 10px;
+      padding-bottom: 20px;
       > label {
         display: block;
         font-size: 15px;
@@ -86,4 +88,8 @@ form {
       margin-right: 15px;
     }
   }
+}
+
+.range-column {
+  min-width: 250px;
 }
