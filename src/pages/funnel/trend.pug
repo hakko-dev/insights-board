@@ -21,10 +21,10 @@ html(lang="ko")
 														"<b>계산 방법</b>: 수집된 디바이스 수 * [(1/(1 - 랜덤화 비율)) * (1/Wi-Fi 활성화 비율)]")
                   i.material-icons.bold info
                   span 모든 퍼널은 선택한 보정치가 반영되어있습니다
-              .bottom-toggler-btn(data-opened="true")
+              .bottom-toggler-btn(data-blind="true" data-opened="true" data-target="#body9")
                 span 접기
                 i.material-icons arrow_drop_up
-          .ib-card-body#ib-card-body
+          .ib-card-body#body9
             form
               .form-row
                 .form-column
@@ -63,11 +63,11 @@ html(lang="ko")
               i.material-icons.bold tune
               | 고급 옵션
             .ib-card-actions
-              .bottom-toggler-btn2(data-opened="true")
+              .bottom-toggler-btn2(data-blind="true" data-opened="true" data-target="#body10")
                 span 접기
                 i.material-icons arrow_drop_up
 
-          .ib-card-body-2
+          .ib-card-body-2#body10
             form
               .form-row
                 .form-column
@@ -92,24 +92,96 @@ html(lang="ko")
                     #custom-handle.ui-slider-handle
 
         .ib-card
-            .ib-card-header
-                span.title 트렌드
-                    span.title-caption
-                        i.material-icons(title="선택한 기간의 각 지표별 트렌드를 파악 할 수 있습니다") help
-                        | 도움말
-                .ib-card-actions
-                    span.title-caption
-                        i.material-icons(title="선택한 기간의 데이터를 일 / 주 / 월별로 비교할 수 있습니다") help
-                    ul#selectable
-                        li.selectee 일
-                        li.selectee 주
-                        li.selectee 월
-                    .download
-                        i.material-icons cloud_download
-                        span 이미지 다운로드
-            hr.ib-card-hr
-            .ib-card-body#trend-wrapper
-                canvas#trend
+                .ib-card-header.dark-header
+                    span.title
+                        span.title-caption
+                            i.material-icons(title="선택한 기간의 각 지표별 트렌드를 파악 할 수 있습니다") help
+                            | 도움말
+                    .ib-card-actions
+                        .description.left(title="선택한 기간의 데이터를 일 / 주 / 월별로 비교할 수 있습니다")
+                            i.material-icons.bold help
+                        ul#selectable
+                            li.selectee 일
+                            li.selectee 주
+                            li.selectee 월
+                .ib-card-header
+                    span.title 통행객
+                    .ib-card-actions
+                        .download
+                            i.material-icons cloud_download
+                            span 이미지 다운로드
+                        .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body3")
+                            span 접기
+                            i.material-icons arrow_drop_up
+                .ib-card-body#body3
+                    .chart-wrapper
+                        canvas#chart1
+                hr.ib-card-hr
+                .ib-card-header
+                    span.title 방문객
+                    .ib-card-actions
+                        .download
+                            i.material-icons cloud_download
+                            span 이미지 다운로드
+                        .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body4")
+                            span 접기
+                            i.material-icons arrow_drop_up
+                .ib-card-body#body4
+                    .chart-wrapper
+                        canvas#chart2
+                hr.ib-card-hr
+                .ib-card-header
+                    span.title 체류객
+                    .ib-card-actions
+                        .download
+                            i.material-icons cloud_download
+                            span 이미지 다운로드
+                        .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body5")
+                            span 접기
+                            i.material-icons arrow_drop_up
+                .ib-card-body#body5
+                    .chart-wrapper
+                        canvas#chart3
+                hr.ib-card-hr
+                .ib-card-header
+                    span.title 방문율
+                    .ib-card-actions
+                        .download
+                            i.material-icons cloud_download
+                            span 이미지 다운로드
+                        .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body6")
+                            span 접기
+                            i.material-icons arrow_drop_up
+                .ib-card-body#body6
+                    .chart-wrapper
+                        canvas#chart4
+                hr.ib-card-hr
+                .ib-card-header
+                    span.title 체류율
+                    .ib-card-actions
+                        .download
+                            i.material-icons cloud_download
+                            span 이미지 다운로드
+                        .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body7")
+                            span 접기
+                            i.material-icons arrow_drop_up
+                .ib-card-body#body7
+                    .chart-wrapper
+                        canvas#chart5
+                hr.ib-card-hr
+                .ib-card-header
+                    span.title 체류시간
+                    .ib-card-actions
+                        .download
+                            i.material-icons cloud_download
+                            span 이미지 다운로드
+                        .bottom-toggler-btn2.toggler(data-blind="true" data-opened="true" data-target="#body8")
+                            span 접기
+                            i.material-icons arrow_drop_up
+                .ib-card-body#body8
+                    .chart-wrapper
+                        canvas#chart6
+                hr.ib-card-hr
 
 
 
@@ -129,24 +201,7 @@ html(lang="ko")
       $( function() {
         $( "#visit-type" ).selectmenu();
       } );
-      $(function(){
-          // 카드 접기/펼치기
-          $('.bottom-toggler-btn').on('click', function () {
-              var isOpened = $(this).data('opened')
-              $(this).data('opened', !isOpened)
-              $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
-              $(this).find('span').text(isOpened ? "펼치기" : "접기")
-              $("#ib-card-body").toggle('blind');
-          })
-          // 카드 접기/펼치기
-          $('.bottom-toggler-btn2').on('click', function () {
-              var isOpened = $(this).data('opened')
-              $(this).data('opened', !isOpened)
-              $(this).find('i').text(isOpened ? "arrow_drop_down" : "arrow_drop_up")
-              $(this).find('span').text(isOpened ? "펼치기" : "접기")
-              $(".ib-card-body-2").toggle('blind');
-          })
-      })
+
         $( function() {
             var handle = $( "#custom-handle" );
             $( "#slider" ).slider({

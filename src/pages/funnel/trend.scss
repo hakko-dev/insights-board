@@ -168,7 +168,40 @@ canvas#trend {
 .button-caption {
   margin-right: 10px;
 }
+.dark-header {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857;
+  color: rgb(81, 99, 120);
+  background-color: #edeff1;
+  padding: 10px !important;
+  .ib-card-actions {
+    span {
+      padding: 0;
+      margin: 0;
+      font-size: 11px;
+      font-weight: 700;
+      color: #98a7b3;
+      line-height: 1.8;
+      text-align: left;
+    }
+    .material-icons {
+      display: inline-block;
+      font-size: 18px;
+      color: #98a7b3;
+      margin-right: 12px;
+    }
+  }
+}
 
+.description.left {
+  justify-content: flex-start;
+  margin-left: 8px;
+  min-width: 0;
+  .material-icons {
+    font-size: 14px;
+  }
+}
 .selectee {
   display: inline-block;
   border-right: 0;
@@ -196,4 +229,8 @@ canvas#trend {
   &:nth-child(3) {
     border-radius: 0 3px 3px 0;
   }
+}
+
+.chart-wrapper{
+  height: 400px;
 }
