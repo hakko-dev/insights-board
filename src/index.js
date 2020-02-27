@@ -6,6 +6,7 @@ function initLayout(){
 		$('#sidebar').addClass('collapse show')
 	}
 }
+
 $( function() {
 	initLayout()
 	window.onresize = function(event) {

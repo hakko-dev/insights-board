@@ -1,0 +1,225 @@
+doctype html
+html(lang="ko")
+    head
+        include ../../components/head
+        link(rel='stylesheet', href='./report.scss')
+    body
+        include ../../components/navbar
+        #container
+            include ../../components/sidebar
+            #content
+                .ib-card
+                    .ib-card-header
+                        span.title
+                            i.material-icons.bold tune
+                            | 보고서 설정
+                        .ib-card-actions
+                            .bottom-toggler-btn(data-blind="true" data-opened="true" data-target="#target3")
+                                span 접기
+                                i.material-icons arrow_drop_up
+                    .ib-card-body#target3
+                        form
+                            .form-row
+                                .form-column
+                                    label
+                                        | 기간
+                                        i.material-icons(title="분석 기간을 선택합니다") help
+                                    input#period(autocomplete="off")
+                                .form-column
+                                    label
+                                        | 방문 유형
+                                        i.material-icons(title="신규: 1회 방문<br/>재방문: 2-3회 방문<br/>VIP: 4회 이상 방문") help
+                                    select#visit-type
+                                        option(value='all') 전체 방문객
+                                        option(value='part') 일부 방문객
+
+                                button.submit-button(type='button', onclick="window.printDiv('print-area')")
+                                    i.material-icons print
+                                    | 인쇄하기
+                .ib-card
+                    .ib-card-body#print-area
+                        #paper
+                            #print-content
+                                .header
+                                    .left
+                                        .rect
+                                        h1 WalkInsight Demo Shop
+                                    .right
+                                        p 2020년 8 주차
+                                        p 2020-02-17 - 2020-02-23
+                                .p-cards
+                                    .p-card
+                                        span
+                                            i.material-icons people
+                                            | 통행객
+                                        span 5.23만
+                                        span.diff.down
+                                            | (
+                                            i.material-icons trending_down
+                                            | 3.0%
+                                            | )
+                                    .p-card
+                                        span
+                                            i.material-icons store
+                                            | 방문객
+                                        span 5.23만
+                                        span.diff.up
+                                            | (
+                                            i.material-icons trending_up
+                                            | 3.0%
+                                            | )
+                                    .p-card
+                                        span
+                                            i.material-icons monetization_on
+                                            | 매출액
+                                        span 5.23만
+                                        span.diff.down
+                                            | (
+                                            i.material-icons trending_down
+                                            | 3.0%
+                                            | )
+                                    .p-card
+                                        span
+                                            i.material-icons timer
+                                            | 체류시간
+                                        span 5.23만
+                                        span.diff.up
+                                            | (
+                                            i.material-icons trending_up
+                                            | 3.0%
+                                            | )
+                                div.desc * 괄호 안 수치는 전주 대비 증감률
+                                .c-cards
+                                    .c-card
+                                        span.title 방문객
+                                        .chart-wrapper
+                                            canvas#chart1
+                                    .c-card
+                                        span.title 매출액
+                                        .chart-wrapper
+                                            canvas#chart2
+                                    .c-card
+                                        span.title 매장 vs 브랜드
+                                        .chart-wrapper
+                                            canvas#chart3
+                                    .c-card
+                                        span.title 매장 vs Demo District
+                                        .chart-wrapper
+                                            canvas#chart4
+                                .table-wrapper
+                                    table
+                                        thead
+                                            tr
+                                                th &nbsp;
+                                                th 통행객
+                                                th 방문객
+                                                th 체류시간
+                                                th 방문율
+                                                th 구매율
+                                        tbody
+                                            tr
+                                                td 브랜드
+                                                td 2.4만
+                                                td 150
+                                                td 4.7분
+                                                td 0.6%
+                                                td 41%
+                                            tr
+                                                td 격차
+                                                td
+                                                    i.material-icons.up arrow_upward
+                                                    | 2.4만
+                                                td
+                                                    i.material-icons.down arrow_downward
+                                                    | 150
+                                                td
+                                                    i.material-icons.up arrow_upward
+                                                    | 4.7분
+                                                td
+                                                    i.material-icons.up arrow_upward
+                                                    | 0.6%
+                                                td
+                                                    i.material-icons.down arrow_downward
+                                                    | 41%
+                                            tr
+                                                td 백분율
+                                                td 41%
+                                                td 41%
+                                                td 41%
+                                                td 41%
+                                                td -
+                                    table
+                                        thead
+                                            tr
+                                                th &nbsp;
+                                                th 통행객
+                                                th 방문객
+                                                th 체류시간
+                                                th 방문율
+                                                th 구매율
+                                        tbody
+                                            tr
+                                                td Demo District
+                                                td 2.4만
+                                                td 150
+                                                td 4.7분
+                                                td 0.6%
+                                                td 41%
+                                            tr
+                                                td 격차
+                                                td
+                                                    i.material-icons.up arrow_upward
+                                                    | 2.4만
+                                                td
+                                                    i.material-icons.down arrow_downward
+                                                    | 150
+                                                td
+                                                    i.material-icons.up arrow_upward
+                                                    | 4.7분
+                                                td
+                                                    i.material-icons.up arrow_upward
+                                                    | 0.6%
+                                                td
+                                                    i.material-icons.down arrow_downward
+                                                    | 41%
+                                            tr
+                                                td 백분율
+                                                td 41%
+                                                td 41%
+                                                td 41%
+                                                td 41%
+                                                td -
+                                .global-desc
+                                    ul
+                                        li 위의 데이터는 무선 신호를 기반으로 한 추정치 입니다.
+                                        li 자세한 데이터는 를 확인해 주세요
+
+
+
+        include ../../components/footer
+        script(src="/assets/externals/jquery-date-range-picker.js")
+        script(src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels")
+        script(src="./report.js")
+
+        script.
+            $(function () {
+                $("#period").daterangepicker();
+            });
+            $(function () {
+                $("#store-type").selectmenu();
+            });
+            $(function () {
+                $("#visit-type").selectmenu();
+            });
+            $(function () {
+                var handle = $("#custom-handle");
+                $("#slider").slider({
+                    create: function () {
+                        handle.text($(this).slider("value"));
+                    },
+                    slide: function (event, ui) {
+                        handle.text(ui.value);
+                    }
+                });
+            });
+
