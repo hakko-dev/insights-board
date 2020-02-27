@@ -6,7 +6,9 @@
   "scripts": {
     "parcel": "parcel",
     "start": "parcel ./src/index.pug",
-    "build": "parcel build ./src/index.pug"
+    "build": "rm -rdf dist/ && parcel build ./src/index.pug --no-minify --no-source-maps && npm run deploy",
+    "deploy": "surge /Users/woohyun/Sources/insight-board/dist/ insight-board.surge.sh",
+    "zip": "npm run build && zip -r insight-board.zip dist"
   },
   "dependencies": {
     "@babel/preset-env": "^7.8.4",
