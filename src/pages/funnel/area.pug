@@ -158,15 +158,5 @@ html(lang="ko")
           }
         });
 
-        $('.percent').each(function(index, item){
-          var item = $(item)
-          var percentage = item.data('percentage')
-          var value = item.data('value')
-          item.text(value)
-          if(percentage == 100){
-            item.css('background', 'linear-gradient(to left, rgba(0, 0, 0, 0) ' + 0 + '%, rgba(0, 214, 61, 0.2) ' + 0 + '%, rgba(0, 214, 61, 0.2) 100%)')
-          }else{
-            item.css('background', 'linear-gradient(to left, rgba(0, 0, 0, 0) ' + (100 - percentage) + '%, rgba(0, 214, 61, 0.2) ' + (100 - percentage+1) + '%, rgba(0, 214, 61, 0.2) 100%)')
-          }
-        })
+
       } );

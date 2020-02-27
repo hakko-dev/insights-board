@@ -124,12 +124,24 @@ html(lang="ko")
                 span 접기
                 i.material-icons arrow_drop_up
           .ib-card-body#target1
-            .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
-            .time-line-chart(data-avg="2.03%" data-value="1.64%" data-percentage="64")
-            .time-line-chart(data-avg="340" data-value="418" data-percentage="55")
-            .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
-            .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
-            .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
+            .time-line
+              span 통행객
+              .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
+            .time-line
+              span 방문율
+              .time-line-chart(data-avg="2.03%" data-value="1.64%" data-percentage="64")
+            .time-line
+              span 방문객
+              .time-line-chart(data-avg="340" data-value="418" data-percentage="55")
+            .time-line
+              span 체류율
+              .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
+            .time-line
+              span 체류객
+              .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
+            .time-line
+              span 체류시간
+              .time-line-chart(data-avg="2.08만" data-value="2.06만" data-percentage="48")
 
         .ib-card
             .ib-card-header
@@ -148,14 +160,73 @@ html(lang="ko")
 
                         i.material-icons cloud_download
                         span 이미지 다운로드
-            .ib-card-body
-                span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7")
-
+            .ib-card-body#summary-wrapper
+                .summary
+                  span.title
+                    | 통행객
+                    i.material-icons(title="선택한 기간의 통행객 데이터") help
+                  span.value 892.93만
+                  span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7, 5,6,7,9,9")
+                  span.diff.high
+                    i.material-icons arrow_upward
+                    | 15.20%
+                .summary
+                  span.title
+                    | 방문율
+                    i.material-icons(title="선택한 기간의 방문율 데이터") help
+                  span.value 892.93만
+                  span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7, 5,6,7,9,9")
+                  span.diff.high
+                    i.material-icons arrow_upward
+                    | 15.20%
+                .summary
+                  span.title
+                    | 방문객
+                    i.material-icons(title="선택한 기간의 방문객 데이터") help
+                  span.value 892.93만
+                  span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7, 5,6,7,9,9")
+                  span.diff.low
+                    i.material-icons arrow_downward
+                    | 15.20%
+                .summary
+                  span.title
+                    | 체류율
+                    i.material-icons(title="선택한 기간의 체류율 데이터") help
+                  span.value 892.93만
+                  span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7, 5,6,7,9,9")
+                  span.diff.high
+                    i.material-icons arrow_upward
+                    | 15.20%
+                .summary
+                  span.title
+                    | 매출액
+                    i.material-icons(title="선택한 기간의 매출액 데이터") help
+                  span.value 892.93만
+                  span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7, 5,6,7,9,9")
+                  span.diff.high
+                    i.material-icons arrow_upward
+                    | 15.20%
+                .summary
+                  span.title
+                    | 구매율
+                    i.material-icons(title="선택한 기간의 구매율 데이터") help
+                  span.value 892.93만
+                  span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7, 5,6,7,9,9")
+                  span.diff.low
+                    i.material-icons arrow_downward
+                    | 15.20%
+                .summary
+                  span.title
+                    | 체류시간
+                  span.value 892.93만
+                  span.sparkline(values="5,6,7,9,9,5,3,2,4,6,7,5,6,7,9,9,5,3,2,4,6,7, 5,6,7,9,9")
+                  span.diff.low
+                    i.material-icons arrow_downward
+                    | 15.20%
 
     include ../../components/footer
     script(src="/assets/externals/jquery-date-range-picker.js")
     script(src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels")
-    script(src="/assets/externals/jquery.sparkline.min.js")
     script(src="./overview.js")
 
     script.

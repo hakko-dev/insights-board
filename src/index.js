@@ -49,4 +49,26 @@ $( function() {
 		$(this).find('span').text(isOpened ? "펼치기" : "접기")
 		$($(this).data('target')).toggle('blind');
 	})
+
+	$('.percent[data-percentage]').each(function(index, item){
+		var item = $(item)
+		var percentage = item.data('percentage')
+		var value = item.data('value')
+		var color = item.data('color') || 'rgba(0, 214, 61, 0.2)'
+		item.text(value)
+		if(percentage == 100){
+			item.css('background', 'linear-gradient(to left, rgba(0, 0, 0, 0) ' + 0 + '%, '+color+' ' + 0 + '%, '+color+' 100%)')
+		}else{
+			item.css('background', 'linear-gradient(to left, rgba(0, 0, 0, 0) ' + (100 - percentage) + '%, '+color+' ' + (100 - percentage+1) + '%, '+color+' 100%)')
+		}
+	})
+
+	$(".sparkline").sparkline('html',{
+		type: 'bar',
+		barColor: '#d0d7dd',
+		fillColour: '#d0d7dd',
+		disableTooltips: true,
+		disableHighlight: true,
+		barWidth: 3
+	});
 });

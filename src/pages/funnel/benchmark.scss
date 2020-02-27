@@ -386,3 +386,25 @@ table.benchmark-table{
 .ib-card-body.no-padding{
   padding: 0;
 }
+#body1{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 40px;
+}
+.time-line{
+  width: 50%;
+  display: flex;
+  span{
+    width: 120px;
+    flex-grow: 0;
+    text-align: center;
+    font-size:14px;
+    font-weight:400;
+    color:rgb(81, 99, 120);
+  }
+  .time-line-chart{
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  height: 70px;
+}

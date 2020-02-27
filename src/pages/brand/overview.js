@@ -117,18 +117,3 @@ window.trendChart = new Chart(ctx, {
 		}
 	}
 });
-
-/**
- * day, week, month
- */
-window.setTrendTimeRange = function(range){
-	// 업데이트
-	// lineChartData.labels = [] // 맨 아래 일, 주, 월 항목들
-	lineChartData.datasets.forEach(function(dataset) {
-		dataset.data = dataset.data.map(function() {
-			return randomScalingFactor(); // 실제 값 넣기
-		});
-	});
-
-	window.trendChart.update();
-}
